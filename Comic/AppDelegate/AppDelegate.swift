@@ -11,10 +11,24 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
+    //MARK: - Accessors
 
+    var window: UIWindow? = {
+        
+        let window: UIWindow = UIWindow(frame: UIScreen.mainScreen().bounds)
+        window.backgroundColor = UIColor.whiteColor()
+        
+        return window
+    }()
 
+    var rootNavigationController: RootNavigationController = RootNavigationController()
+    
+     //MARK: - UIApplicationDelegate
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+
+        window!.rootViewController = rootNavigationController
+        window!.makeKeyAndVisible()
 
         return true
     }

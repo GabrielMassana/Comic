@@ -10,9 +10,9 @@
 		7AA3F93C1C9C4CC800F96A78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA3F9281C9C4CC800F96A78 /* AppDelegate.swift */; };
 		7AA3F93D1C9C4CC800F96A78 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA3F92C1C9C4CC800F96A78 /* UIColor+Hex.swift */; };
 		7AA3F93E1C9C4CC800F96A78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AA3F9331C9C4CC800F96A78 /* Assets.xcassets */; };
-		7AA3F93F1C9C4CC800F96A78 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AA3F9371C9C4CC800F96A78 /* Info.plist */; };
 		7AA3F9411C9C4DFC00F96A78 /* ComicsFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA3F9401C9C4DFC00F96A78 /* ComicsFeedViewController.swift */; };
 		7AA3F9431C9C4E1800F96A78 /* ComicDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA3F9421C9C4E1800F96A78 /* ComicDetailViewController.swift */; };
+		7AA3F9461C9C4FFF00F96A78 /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA3F9451C9C4FFF00F96A78 /* RootNavigationController.swift */; };
 		9AA496AE5DF3E4372A63D032 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B43145940D82AB12986AAB3 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +26,7 @@
 		7AA3F9371C9C4CC800F96A78 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7AA3F9401C9C4DFC00F96A78 /* ComicsFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicsFeedViewController.swift; sourceTree = "<group>"; };
 		7AA3F9421C9C4E1800F96A78 /* ComicDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicDetailViewController.swift; sourceTree = "<group>"; };
+		7AA3F9451C9C4FFF00F96A78 /* RootNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
 		7AB2C4211C9C489200F7C617 /* Comic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Comic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -179,8 +180,17 @@
 		7AA3F93B1C9C4CC800F96A78 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7AA3F9441C9C4FE400F96A78 /* NavigationController */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		7AA3F9441C9C4FE400F96A78 /* NavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				7AA3F9451C9C4FFF00F96A78 /* RootNavigationController.swift */,
+			);
+			path = NavigationController;
 			sourceTree = "<group>";
 		};
 		7AB2C4181C9C489200F7C617 = {
@@ -286,7 +296,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7AA3F93F1C9C4CC800F96A78 /* Info.plist in Resources */,
 				7AA3F93E1C9C4CC800F96A78 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,6 +358,7 @@
 				7AA3F93C1C9C4CC800F96A78 /* AppDelegate.swift in Sources */,
 				7AA3F9411C9C4DFC00F96A78 /* ComicsFeedViewController.swift in Sources */,
 				7AA3F93D1C9C4CC800F96A78 /* UIColor+Hex.swift in Sources */,
+				7AA3F9461C9C4FFF00F96A78 /* RootNavigationController.swift in Sources */,
 				7AA3F9431C9C4E1800F96A78 /* ComicDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
