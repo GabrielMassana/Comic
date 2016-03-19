@@ -20,21 +20,12 @@ class CharactersParser: Parser {
         
         let charactersArray: NSMutableArray = NSMutableArray(capacity: charactersResponse.count)
         
-            do {
-                
-                for characterResponse in charactersResponse {
-                    
-                    let characterDictionary: NSDictionary = characterResponse as! NSDictionary
-                    
-                    charactersArray.addObject(self.parseCharacter(characterDictionary))
-                }
-                
-                try CDFCoreDataManager.sharedInstance().backgroundManagedObjectContext.save()
-            }
-            catch
-            {
-                print(error)
-            }
+        for characterResponse in charactersResponse {
+            
+            let characterDictionary: NSDictionary = characterResponse as! NSDictionary
+            
+            charactersArray.addObject(self.parseCharacter(characterDictionary))
+        }
         
         return charactersArray
     }
@@ -43,11 +34,10 @@ class CharactersParser: Parser {
 
     func parseCharacter(characterResponse: NSDictionary) -> Character {
         
+        // if ! exixts already in Database
+        // TODO parse character here
+        
         let character:Character = CDFInsertService.insertNewObjectForEntityClass(Character.self, inManagedObjectContext: CDFCoreDataManager.sharedInstance().backgroundManagedObjectContext) as! Character
-        
-//        let feed: CharacterFeed = CharacterFeed.fetchCharactersFeed(CDFCoreDataManager.sharedInstance().backgroundManagedObjectContext)
-        
-        
         
         return character
     }

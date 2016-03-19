@@ -15,11 +15,11 @@ class CharactersParserOperation: COMOperation {
 
     //MARK: - Accessors
 
-    var charactersResponse: NSArray?
+    var charactersResponse: NSDictionary?
     
     //MARK: - Init
     
-    init(charactersResponse: NSArray) {
+    init(charactersResponse: NSDictionary) {
         
         super.init()
         
@@ -41,15 +41,29 @@ class CharactersParserOperation: COMOperation {
         
         CDFCoreDataManager.sharedInstance().backgroundManagedObjectContext.performBlockAndWait { () -> Void in
             
-            let parser: CharactersParser = CharactersParser.parser()
+            let feedParser: CharactersFeedParser = CharactersFeedParser.parser()
             
-            if let _ = self.charactersResponse {
+            if let response = self.charactersResponse {
                 
-                parser.parseCharacters(self.charactersResponse!)
+                let feed: CharacterFeed = feedParser.parseFeed(response)
+                
+                do {
+                    try CDFCoreDataManager.sharedInstance().backgroundManagedObjectContext.save()
+                    
+                    self.didSucceedWithResult(feed.feedID)
+                }
+                catch
+                {
+                    print(error)
+                    self.didFailWithError(nil)
+                }
+            }
+            else
+            {
+                // Failure
+                self.didFailWithError(nil)
             }
         }
-        
-        didSucceedWithResult("")
     }
     
     //MARK: - Cancel
