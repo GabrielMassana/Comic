@@ -12,11 +12,11 @@ class RootNavigationController: UINavigationController {
 
     //MARK: - Accessors
 
-    var rootViewController: ComicsFeedViewController = {
+    var rootViewController: CharactersFeedViewController = {
         
-        let comicsFeed: ComicsFeedViewController = ComicsFeedViewController()
+        let charactersFeed: CharactersFeedViewController = CharactersFeedViewController()
         
-        return comicsFeed
+        return charactersFeed
     }()
     
     //MARK: - Init

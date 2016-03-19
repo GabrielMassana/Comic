@@ -8,8 +8,14 @@
 
 import UIKit
 
+import CoreDataFullStack
+import CoreOperation
+
+let NetworkDataOperationQueueTypeIdentifier:String = "NetworkDataOperationQueueTypeIdentifier"
+let LocalDataOperationQueueTypeIdentifier:String = "LocalDataOperationQueueTypeIdentifier"
+
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, CDFCoreDataManagerDelegate {
 
     //MARK: - Accessors
 
@@ -27,6 +33,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
+        CDFCoreDataManager.sharedInstance().delegate = self
+
+        /*-------------------*/
+        
+        registerOperationQueues()
+        
+        /*-------------------*/
+        
         window!.rootViewController = rootNavigationController
         window!.makeKeyAndVisible()
 
@@ -51,5 +65,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
 
+    }
+    
+    //MARK: - OperationQueues
+    
+    func registerOperationQueues() {
+        
+        let networkDataOperationQueue:NSOperationQueue = NSOperationQueue()
+        networkDataOperationQueue.qualityOfService = .Background
+        networkDataOperationQueue.maxConcurrentOperationCount = NSOperationQueueDefaultMaxConcurrentOperationCount
+        COMOperationQueueManager.sharedInstance() .registerOperationQueue(networkDataOperationQueue, operationQueueIdentifier: NetworkDataOperationQueueTypeIdentifier)
+        
+        let localDataOperationQueue:NSOperationQueue = NSOperationQueue()
+        localDataOperationQueue.qualityOfService = .Background
+        localDataOperationQueue.maxConcurrentOperationCount = 1
+        COMOperationQueueManager.sharedInstance() .registerOperationQueue(localDataOperationQueue, operationQueueIdentifier: LocalDataOperationQueueTypeIdentifier)
+    }
+    
+    //MARK: - CDFCoreDataManagerDelegate
+    
+    internal func coreDataModelName() -> String! {
+        
+        return "Marvel"
     }
 }

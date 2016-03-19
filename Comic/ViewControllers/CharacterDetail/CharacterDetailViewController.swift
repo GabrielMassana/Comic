@@ -1,5 +1,5 @@
 //
-//  ComicDetailViewController.swift
+//  CharacterDetailViewController.swift
 //  Comic
 //
 //  Created by Gabriel Massana on 18/3/16.
@@ -8,6 +8,6 @@
 
 import UIKit
 
-class ComicDetailViewController: UIViewController {
+class CharacterDetailViewController: UIViewController {
 
 }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15C50" minimumToolsVersion="Xcode 7.0">
+    <entity name="Character" syncable="YES">
+        <attribute name="characterID" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="feed" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CharacterFeed" inverseName="characters" inverseEntity="CharacterFeed" syncable="YES"/>
+    </entity>
+    <entity name="CharacterFeed" syncable="YES">
+        <attribute name="feedID" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="characters" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Character" inverseName="feed" inverseEntity="Character" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Character" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="CharacterFeed" positionX="-54" positionY="0" width="128" height="75"/>
+    </elements>
+</model>
