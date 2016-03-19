@@ -11,8 +11,8 @@ import UIKit
 import CoreDataFullStack
 import CoreOperation
 
-let NetworkDataOperationQueueTypeIdentifier:String = "NetworkDataOperationQueueTypeIdentifier"
-let LocalDataOperationQueueTypeIdentifier:String = "LocalDataOperationQueueTypeIdentifier"
+let NetworkDataOperationQueueTypeIdentifier: String = "NetworkDataOperationQueueTypeIdentifier"
+let LocalDataOperationQueueTypeIdentifier: String = "LocalDataOperationQueueTypeIdentifier"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, CDFCoreDataManagerDelegate {

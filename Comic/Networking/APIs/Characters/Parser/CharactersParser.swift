@@ -39,11 +39,15 @@ class CharactersParser: Parser {
         return charactersArray
     }
     
+    //MARK: - ParseCharacter
+
     func parseCharacter(characterResponse: NSDictionary) -> Character {
         
         let character:Character = CDFInsertService.insertNewObjectForEntityClass(Character.self, inManagedObjectContext: CDFCoreDataManager.sharedInstance().backgroundManagedObjectContext) as! Character
         
-        print(characterResponse)
+//        let feed: CharacterFeed = CharacterFeed.fetchCharactersFeed(CDFCoreDataManager.sharedInstance().backgroundManagedObjectContext)
+        
+        
         
         return character
     }

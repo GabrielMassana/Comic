@@ -1,15 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15C50" minimumToolsVersion="Xcode 7.0">
     <entity name="Character" representedClassName="Character" syncable="YES">
+        <attribute name="characterDescription" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="characterID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="comicLinkURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="detailURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="modified" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thumbnailExtension" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thumbnailPath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="totalComics" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="totalEvents" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="totalSeries" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="totalStories" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="wikiURL" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="feed" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CharacterFeed" inverseName="characters" inverseEntity="CharacterFeed" syncable="YES"/>
     </entity>
     <entity name="CharacterFeed" representedClassName="CharacterFeed" syncable="YES">
         <attribute name="feedID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="totalCharacters" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="characters" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Character" inverseName="feed" inverseEntity="Character" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Character" positionX="-63" positionY="-18" width="128" height="75"/>
-        <element name="CharacterFeed" positionX="-54" positionY="0" width="128" height="75"/>
+        <element name="Character" positionX="-63" positionY="-18" width="128" height="255"/>
+        <element name="CharacterFeed" positionX="-54" positionY="0" width="128" height="90"/>
     </elements>
 </model>

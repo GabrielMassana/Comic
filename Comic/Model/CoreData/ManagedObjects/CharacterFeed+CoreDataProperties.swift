@@ -16,4 +16,6 @@ extension CharacterFeed {
 
     @NSManaged var feedID: String?
     @NSManaged var characters: NSSet?
+    @NSManaged var totalCharacters: NSNumber?
+
 }
