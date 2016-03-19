@@ -28,7 +28,7 @@ class Request: CNMRequest {
     
     //MARK: - UpdateRequest
     
-    func updateRequestWithEndpoint(endpoint: NSString) {
+    func updateRequestWithEndpoint(endpoint: String, offset: String) {
         
     }
 }

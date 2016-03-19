@@ -15,29 +15,26 @@ class CharactersAPIManager: APIManager {
 
     //MARK: - RetrieveCharacters
 
-    class func retrieveCharacters(success: NetworkingOnSuccess, failure: NetworkingOnFailure) {
+    class func retrieveCharacters(offset: String, success: NetworkingOnSuccess, failure: NetworkingOnFailure) {
         
         // Offset from Core Data
         let characterRequest: CharacterRequest = CharacterRequest.requestWithOffset(0)
         
-        characterRequest.updateRequestWithEndpoint("/v1/public/characters")
+        characterRequest.updateRequestWithEndpoint("/v1/public/characters", offset: offset)
         
         let task: CNMURLSessionDataTask = CNMSession.defaultSession().dataTaskFromRequest(characterRequest)
         
         task.onCompletion = { (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
             
-            print(response)
-            
             do {
                 let json: NSDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as! NSDictionary
-                print(json)
                 
                 let operation: CharactersParserOperation = CharactersParserOperation(charactersResponse: json)
                 operation.operationQueueIdentifier = LocalDataOperationQueueTypeIdentifier
 
                 operation.onSuccess = { (result:AnyObject?) -> Void in
                     
-                    // onSuccess
+                    success(result: nil)
                 }
                 
                 COMOperationQueueManager.sharedInstance().addOperation(operation)
@@ -45,6 +42,7 @@ class CharactersAPIManager: APIManager {
             catch
             {
                 print(error)
+                failure(error: nil)
             }
         }
         

@@ -16,8 +16,6 @@ class CharactersParser: Parser {
 
     func parseCharacters(charactersResponse: NSArray) -> NSArray {
         
-        print(charactersResponse)
-        
         let charactersArray: NSMutableArray = NSMutableArray(capacity: charactersResponse.count)
         
         for characterResponse in charactersResponse {
@@ -118,8 +116,6 @@ class CharactersParser: Parser {
                 character?.modified = dateFormatter.dateFromString(modified!)
             }
         }
-
-        print(character)
         
         return character
     }
