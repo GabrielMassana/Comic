@@ -73,13 +73,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CDFCoreDataManagerDelegat
         
         let networkDataOperationQueue:NSOperationQueue = NSOperationQueue()
         networkDataOperationQueue.qualityOfService = .Background
-        networkDataOperationQueue.maxConcurrentOperationCount = NSOperationQueueDefaultMaxConcurrentOperationCount
-        COMOperationQueueManager.sharedInstance() .registerOperationQueue(networkDataOperationQueue, operationQueueIdentifier: NetworkDataOperationQueueTypeIdentifier)
+        networkDataOperationQueue.maxConcurrentOperationCount = 1
+        COMOperationQueueManager.sharedInstance().registerOperationQueue(networkDataOperationQueue, operationQueueIdentifier: NetworkDataOperationQueueTypeIdentifier)
         
         let localDataOperationQueue:NSOperationQueue = NSOperationQueue()
         localDataOperationQueue.qualityOfService = .Background
-        localDataOperationQueue.maxConcurrentOperationCount = 1
-        COMOperationQueueManager.sharedInstance() .registerOperationQueue(localDataOperationQueue, operationQueueIdentifier: LocalDataOperationQueueTypeIdentifier)
+        localDataOperationQueue.maxConcurrentOperationCount = NSOperationQueueDefaultMaxConcurrentOperationCount
+        COMOperationQueueManager.sharedInstance().registerOperationQueue(localDataOperationQueue, operationQueueIdentifier: LocalDataOperationQueueTypeIdentifier)
     }
     
     //MARK: - CDFCoreDataManagerDelegate
