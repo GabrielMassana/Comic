@@ -27,6 +27,7 @@
 		7AA3F9951C9D875600F96A78 /* CharactersParserOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA3F98F1C9D875600F96A78 /* CharactersParserOperation.swift */; };
 		7AA3F9961C9D875600F96A78 /* CharactersParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA3F9931C9D875600F96A78 /* CharactersParser.swift */; };
 		7AA3F9981C9D877500F96A78 /* CharactersFeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA3F9971C9D877500F96A78 /* CharactersFeedParser.swift */; };
+		7AA3F99B1C9DC8A500F96A78 /* NSDateFormatter+ServerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA3F99A1C9DC8A500F96A78 /* NSDateFormatter+ServerResponse.swift */; };
 		9AA496AE5DF3E4372A63D032 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B43145940D82AB12986AAB3 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 		7AA3F98F1C9D875600F96A78 /* CharactersParserOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersParserOperation.swift; sourceTree = "<group>"; };
 		7AA3F9931C9D875600F96A78 /* CharactersParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersParser.swift; sourceTree = "<group>"; };
 		7AA3F9971C9D877500F96A78 /* CharactersFeedParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersFeedParser.swift; sourceTree = "<group>"; };
+		7AA3F99A1C9DC8A500F96A78 /* NSDateFormatter+ServerResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDateFormatter+ServerResponse.swift"; sourceTree = "<group>"; };
 		7AB2C4211C9C489200F7C617 /* Comic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Comic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -91,6 +93,7 @@
 		7AA3F9291C9C4CC800F96A78 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				7AA3F9991C9DC88500F96A78 /* NSDateFormatter */,
 				7AA3F96E1C9D571B00F96A78 /* String */,
 				7AA3F92A1C9C4CC800F96A78 /* UIColor */,
 			);
@@ -357,6 +360,14 @@
 			path = Feed;
 			sourceTree = "<group>";
 		};
+		7AA3F9991C9DC88500F96A78 /* NSDateFormatter */ = {
+			isa = PBXGroup;
+			children = (
+				7AA3F99A1C9DC8A500F96A78 /* NSDateFormatter+ServerResponse.swift */,
+			);
+			path = NSDateFormatter;
+			sourceTree = "<group>";
+		};
 		7AB2C4181C9C489200F7C617 = {
 			isa = PBXGroup;
 			children = (
@@ -526,6 +537,7 @@
 				7AA3F9711C9D573300F96A78 /* String+MD5.swift in Sources */,
 				7AA3F9881C9D7D5200F96A78 /* Character+CoreDataProperties.swift in Sources */,
 				7AA3F93D1C9C4CC800F96A78 /* UIColor+Hex.swift in Sources */,
+				7AA3F99B1C9DC8A500F96A78 /* NSDateFormatter+ServerResponse.swift in Sources */,
 				7AA3F9851C9D68AA00F96A78 /* CharacterFeed.swift in Sources */,
 				7AA3F9461C9C4FFF00F96A78 /* RootNavigationController.swift in Sources */,
 				7AA3F96A1C9D51B400F96A78 /* CharactersAPIManager.swift in Sources */,

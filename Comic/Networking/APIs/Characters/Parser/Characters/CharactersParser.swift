@@ -113,8 +113,9 @@ class CharactersParser: Parser {
 
             if let _ = modified {
                 
-                
-                
+                let dateFormatter: NSDateFormatter = NSDateFormatter.serverDateFormatter()
+
+                character?.modified = dateFormatter.dateFromString(modified!)
             }
         }
 
