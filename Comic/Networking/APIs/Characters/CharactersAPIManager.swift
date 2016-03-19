@@ -32,8 +32,8 @@ class CharactersAPIManager: APIManager {
                 let json: NSDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as! NSDictionary
                 print(json)
                 
-                let data: NSDictionary = json["data"] as AnyObject! as! NSDictionary
-                let results: NSArray = data["results"] as AnyObject! as! NSArray
+                let data: NSDictionary = json["data"]! as! NSDictionary
+                let results: NSArray = data["results"]! as! NSArray
                 
                 let operation: CharactersParserOperation = CharactersParserOperation(charactersResponse: results)
                 operation.operationQueueIdentifier = LocalDataOperationQueueTypeIdentifier

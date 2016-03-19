@@ -13,7 +13,8 @@ import CoreDataFullStack
 
 class CharactersParserOperation: COMOperation {
 
-    
+    //MARK: - Accessors
+
     var charactersResponse: NSArray?
     
     //MARK: - Init
@@ -38,13 +39,15 @@ class CharactersParserOperation: COMOperation {
         
         super.start()
         
-        let parser: CharactersParser = CharactersParser.parser()
-        
-        if let _ = charactersResponse {
+        CDFCoreDataManager.sharedInstance().backgroundManagedObjectContext.performBlockAndWait { () -> Void in
             
-            parser.parseCharacters(charactersResponse!)
+            let parser: CharactersParser = CharactersParser.parser()
+            
+            if let _ = self.charactersResponse {
+                
+                parser.parseCharacters(self.charactersResponse!)
+            }
         }
-        
         
         didSucceedWithResult("")
     }
