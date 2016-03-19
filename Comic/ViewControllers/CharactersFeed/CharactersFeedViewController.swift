@@ -12,6 +12,10 @@ import CoreDataFullStack
 
 class CharactersFeedViewController: UIViewController {
 
+    //MARK: - Accessors
+
+    
+    
     //MARK: - ViewLifeCycle
     
     override func viewDidLoad() {

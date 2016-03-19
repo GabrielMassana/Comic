@@ -28,6 +28,9 @@
 		7AA3F9961C9D875600F96A78 /* CharactersParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA3F9931C9D875600F96A78 /* CharactersParser.swift */; };
 		7AA3F9981C9D877500F96A78 /* CharactersFeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA3F9971C9D877500F96A78 /* CharactersFeedParser.swift */; };
 		7AA3F99B1C9DC8A500F96A78 /* NSDateFormatter+ServerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA3F99A1C9DC8A500F96A78 /* NSDateFormatter+ServerResponse.swift */; };
+		7AA3F99F1C9E123100F96A78 /* CharactersFeedAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA3F99E1C9E123100F96A78 /* CharactersFeedAdapter.swift */; };
+		7AA3F9A31C9E129500F96A78 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA3F9A21C9E129500F96A78 /* TableViewCell.swift */; };
+		7AA3F9A51C9E12C400F96A78 /* CharactersFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA3F9A41C9E12C400F96A78 /* CharactersFeedCell.swift */; };
 		9AA496AE5DF3E4372A63D032 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B43145940D82AB12986AAB3 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +61,9 @@
 		7AA3F9931C9D875600F96A78 /* CharactersParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersParser.swift; sourceTree = "<group>"; };
 		7AA3F9971C9D877500F96A78 /* CharactersFeedParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersFeedParser.swift; sourceTree = "<group>"; };
 		7AA3F99A1C9DC8A500F96A78 /* NSDateFormatter+ServerResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDateFormatter+ServerResponse.swift"; sourceTree = "<group>"; };
+		7AA3F99E1C9E123100F96A78 /* CharactersFeedAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersFeedAdapter.swift; sourceTree = "<group>"; };
+		7AA3F9A21C9E129500F96A78 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		7AA3F9A41C9E12C400F96A78 /* CharactersFeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersFeedCell.swift; sourceTree = "<group>"; };
 		7AB2C4211C9C489200F7C617 /* Comic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Comic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -206,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				7AA3F9441C9C4FE400F96A78 /* NavigationController */,
+				7AA3F9A01C9E127200F96A78 /* TableViewCell */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -281,6 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				7AA3F9621C9D516000F96A78 /* CharactersFeedViewController.swift */,
+				7AA3F99C1C9E121500F96A78 /* Adapter */,
 			);
 			path = CharactersFeed;
 			sourceTree = "<group>";
@@ -366,6 +374,39 @@
 				7AA3F99A1C9DC8A500F96A78 /* NSDateFormatter+ServerResponse.swift */,
 			);
 			path = NSDateFormatter;
+			sourceTree = "<group>";
+		};
+		7AA3F99C1C9E121500F96A78 /* Adapter */ = {
+			isa = PBXGroup;
+			children = (
+				7AA3F99E1C9E123100F96A78 /* CharactersFeedAdapter.swift */,
+				7AA3F99D1C9E121500F96A78 /* Cell */,
+			);
+			path = Adapter;
+			sourceTree = "<group>";
+		};
+		7AA3F99D1C9E121500F96A78 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				7AA3F9A41C9E12C400F96A78 /* CharactersFeedCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		7AA3F9A01C9E127200F96A78 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				7AA3F9A11C9E127200F96A78 /* Abstract */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		7AA3F9A11C9E127200F96A78 /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+				7AA3F9A21C9E129500F96A78 /* TableViewCell.swift */,
+			);
+			path = Abstract;
 			sourceTree = "<group>";
 		};
 		7AB2C4181C9C489200F7C617 = {
@@ -541,14 +582,17 @@
 				7AA3F9851C9D68AA00F96A78 /* CharacterFeed.swift in Sources */,
 				7AA3F9461C9C4FFF00F96A78 /* RootNavigationController.swift in Sources */,
 				7AA3F96A1C9D51B400F96A78 /* CharactersAPIManager.swift in Sources */,
+				7AA3F9A51C9E12C400F96A78 /* CharactersFeedCell.swift in Sources */,
 				7AA3F9981C9D877500F96A78 /* CharactersFeedParser.swift in Sources */,
 				7AA3F9671C9D518600F96A78 /* CharacterRequest.swift in Sources */,
 				7AA3F9641C9D516000F96A78 /* CharactersFeedViewController.swift in Sources */,
 				7AA3F9961C9D875600F96A78 /* CharactersParser.swift in Sources */,
 				7AA3F9561C9C5B7F00F96A78 /* Request.swift in Sources */,
 				7AA3F9631C9D516000F96A78 /* CharacterDetailViewController.swift in Sources */,
+				7AA3F9A31C9E129500F96A78 /* TableViewCell.swift in Sources */,
 				7AA3F9831C9D68AA00F96A78 /* Character.swift in Sources */,
 				7AA3F9501C9C592B00F96A78 /* APIManager.swift in Sources */,
+				7AA3F99F1C9E123100F96A78 /* CharactersFeedAdapter.swift in Sources */,
 				7AA3F9861C9D68AA00F96A78 /* CharacterFeed+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
