@@ -32,9 +32,8 @@ class CharactersFeedAdapter: NSObject, UITableViewDelegate, UITableViewDataSourc
                 tableView.dataSource = self
                 tableView.delegate = self
                 tableView.backgroundColor = UIColor.whiteColor()
-                tableView.rowHeight = 100.0
+                tableView.rowHeight = 120.0
                 tableView.separatorStyle = .None
-                
                 
                 //RegisterCells
                 registerCells()

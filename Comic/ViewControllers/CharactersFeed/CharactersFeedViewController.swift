@@ -91,7 +91,11 @@ class CharactersFeedViewController: UIViewController, CharactersFeedAdapterDeleg
                 
                 // TODO uncomment. 
                 // Doing it to do not waste API calls limit
-//                self.downloadDataFromMarvelAPI((feed.characters?.count)!)
+                
+                if feed.characters?.count < 200 {
+                
+                    self.downloadDataFromMarvelAPI((feed.characters?.count)!)
+                }
             }
         }
     }
