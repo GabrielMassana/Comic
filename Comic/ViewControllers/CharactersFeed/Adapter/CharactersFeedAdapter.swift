@@ -13,6 +13,8 @@ import CoreDataFullStack
 protocol CharactersFeedAdapterDelegate: class {
     
     func didSelectCharacter(character: Character)
+    
+    func scrollViewDidScroll()
 }
 
 class CharactersFeedAdapter: NSObject, UITableViewDelegate, UITableViewDataSource {
@@ -21,6 +23,8 @@ class CharactersFeedAdapter: NSObject, UITableViewDelegate, UITableViewDataSourc
 
     weak var delegate: CharactersFeedAdapterDelegate?
 
+    var searchCriteria: String = ""
+    
     var tableView: UITableView! {
         
         willSet (newValue) {
@@ -80,27 +84,32 @@ class CharactersFeedAdapter: NSObject, UITableViewDelegate, UITableViewDataSourc
 
     func filterTableViewWithSearchCriteria(searchCriteria: String) {
         
-        if searchCriteria.characters.count > 0 {
+        if self.searchCriteria.lowercaseString != searchCriteria.lowercaseString {
             
-            let predicate: NSPredicate = NSPredicate(format: "name CONTAINS[cd] %@", searchCriteria)
+            self.searchCriteria = searchCriteria
             
-            fetchedResultsController.fetchRequest.predicate = predicate
-        }
-        else
-        {
-            let predicate: NSPredicate = NSPredicate(format: "NOT (name CONTAINS[cd] %@)", searchCriteria)
-
-            fetchedResultsController.fetchRequest.predicate = predicate
-        }
-        
-        do {
+            if searchCriteria.characters.count > 0 {
+                
+                let predicate: NSPredicate = NSPredicate(format: "name CONTAINS[cd] %@", searchCriteria)
+                
+                fetchedResultsController.fetchRequest.predicate = predicate
+            }
+            else
+            {
+                let predicate: NSPredicate = NSPredicate(format: "NOT (name CONTAINS[cd] %@)", searchCriteria)
+                
+                fetchedResultsController.fetchRequest.predicate = predicate
+            }
             
-            try self.fetchedResultsController.performFetch()
-            tableView.reloadData()
-        }
-        catch
-        {
-            
+            do {
+                
+                try self.fetchedResultsController.performFetch()
+                tableView.reloadData()
+            }
+            catch
+            {
+                
+            }
         }
     }
     
@@ -129,6 +138,11 @@ class CharactersFeedAdapter: NSObject, UITableViewDelegate, UITableViewDataSourc
         let character: Character = fetchedResultsController.fetchedObjects![indexPath.row] as! Character
 
         self.delegate?.didSelectCharacter(character)
+    }
+    
+    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+    
+        self.delegate?.scrollViewDidScroll()
     }
     
     //MARK: - UITableViewDataSource
