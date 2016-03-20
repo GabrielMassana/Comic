@@ -10,9 +10,18 @@ import UIKit
 
 extension UIFont {
     
-    class func altoColor() -> UIFont {
+    class func tradeGothicLightWithSize(size: CGFloat) -> UIFont {
         
-        
+        return UIFont(name: "TradeGothic-Light", size: size * DeviceSizeService.sharedInstance.resizeFactor)!
+    }
     
+    class func tradeGothicLTWithSize(size: CGFloat) -> UIFont {
+        
+        return UIFont(name: "TradeGothicLT", size: size * DeviceSizeService.sharedInstance.resizeFactor)!
+    }
+    
+    class func tradeGothicNo2BoldWithSize(size: CGFloat) -> UIFont {
+        
+        return UIFont(name: "TradeGothicNo.2-Bold", size: size * DeviceSizeService.sharedInstance.resizeFactor)!
     }
 }

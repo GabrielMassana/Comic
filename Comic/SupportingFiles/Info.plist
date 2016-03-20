@@ -37,5 +37,11 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>TradeGothicLT.ttf</string>
+		<string>TradeGothic-Light.ttf</string>
+		<string>TradeGothicNo.2-Bold.ttf</string>
+	</array>
 </dict>
 </plist>

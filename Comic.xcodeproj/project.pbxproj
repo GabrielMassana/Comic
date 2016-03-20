@@ -33,9 +33,9 @@
 		7AA3F9A81C9EBC4C00F96A78 /* DeviceSizeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA3F9A71C9EBC4C00F96A78 /* DeviceSizeService.swift */; };
 		7AA3F9AD1C9EBEFE00F96A78 /* UIFont+Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA3F9AC1C9EBEFE00F96A78 /* UIFont+Comic.swift */; };
 		7AA3F9AF1C9EBF0C00F96A78 /* UIColor+Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA3F9AE1C9EBF0C00F96A78 /* UIColor+Comic.swift */; };
-		7AA3F9BB1C9EC3B000F96A78 /* trade-gothic-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7AA3F9B81C9EC3B000F96A78 /* trade-gothic-light.ttf */; };
-		7AA3F9BC1C9EC3B000F96A78 /* trade-gothic-lt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7AA3F9B91C9EC3B000F96A78 /* trade-gothic-lt.ttf */; };
-		7AA3F9BD1C9EC3B000F96A78 /* trade-gothic-no-2-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7AA3F9BA1C9EC3B000F96A78 /* trade-gothic-no-2-bold.ttf */; };
+		7AA3F9BB1C9EC3B000F96A78 /* TradeGothic-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7AA3F9B81C9EC3B000F96A78 /* TradeGothic-Light.ttf */; };
+		7AA3F9BC1C9EC3B000F96A78 /* TradeGothicLT.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7AA3F9B91C9EC3B000F96A78 /* TradeGothicLT.ttf */; };
+		7AA3F9BD1C9EC3B000F96A78 /* TradeGothicNo.2-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7AA3F9BA1C9EC3B000F96A78 /* TradeGothicNo.2-Bold.ttf */; };
 		7AA3F9C01C9EC3B900F96A78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AA3F9BF1C9EC3B900F96A78 /* Assets.xcassets */; };
 		9AA496AE5DF3E4372A63D032 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B43145940D82AB12986AAB3 /* Pods.framework */; };
 /* End PBXBuildFile section */
@@ -72,9 +72,9 @@
 		7AA3F9A71C9EBC4C00F96A78 /* DeviceSizeService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceSizeService.swift; sourceTree = "<group>"; };
 		7AA3F9AC1C9EBEFE00F96A78 /* UIFont+Comic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Comic.swift"; sourceTree = "<group>"; };
 		7AA3F9AE1C9EBF0C00F96A78 /* UIColor+Comic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Comic.swift"; sourceTree = "<group>"; };
-		7AA3F9B81C9EC3B000F96A78 /* trade-gothic-light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "trade-gothic-light.ttf"; sourceTree = "<group>"; };
-		7AA3F9B91C9EC3B000F96A78 /* trade-gothic-lt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "trade-gothic-lt.ttf"; sourceTree = "<group>"; };
-		7AA3F9BA1C9EC3B000F96A78 /* trade-gothic-no-2-bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "trade-gothic-no-2-bold.ttf"; sourceTree = "<group>"; };
+		7AA3F9B81C9EC3B000F96A78 /* TradeGothic-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TradeGothic-Light.ttf"; sourceTree = "<group>"; };
+		7AA3F9B91C9EC3B000F96A78 /* TradeGothicLT.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TradeGothicLT.ttf; sourceTree = "<group>"; };
+		7AA3F9BA1C9EC3B000F96A78 /* TradeGothicNo.2-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TradeGothicNo.2-Bold.ttf"; sourceTree = "<group>"; };
 		7AA3F9BF1C9EC3B900F96A78 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7AB2C4211C9C489200F7C617 /* Comic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Comic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -444,9 +444,9 @@
 		7AA3F9B71C9EC3B000F96A78 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				7AA3F9B81C9EC3B000F96A78 /* trade-gothic-light.ttf */,
-				7AA3F9B91C9EC3B000F96A78 /* trade-gothic-lt.ttf */,
-				7AA3F9BA1C9EC3B000F96A78 /* trade-gothic-no-2-bold.ttf */,
+				7AA3F9B81C9EC3B000F96A78 /* TradeGothic-Light.ttf */,
+				7AA3F9B91C9EC3B000F96A78 /* TradeGothicLT.ttf */,
+				7AA3F9BA1C9EC3B000F96A78 /* TradeGothicNo.2-Bold.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -562,10 +562,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7AA3F9BD1C9EC3B000F96A78 /* trade-gothic-no-2-bold.ttf in Resources */,
-				7AA3F9BC1C9EC3B000F96A78 /* trade-gothic-lt.ttf in Resources */,
+				7AA3F9BD1C9EC3B000F96A78 /* TradeGothicNo.2-Bold.ttf in Resources */,
+				7AA3F9BC1C9EC3B000F96A78 /* TradeGothicLT.ttf in Resources */,
 				7AA3F9C01C9EC3B900F96A78 /* Assets.xcassets in Resources */,
-				7AA3F9BB1C9EC3B000F96A78 /* trade-gothic-light.ttf in Resources */,
+				7AA3F9BB1C9EC3B000F96A78 /* TradeGothic-Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
