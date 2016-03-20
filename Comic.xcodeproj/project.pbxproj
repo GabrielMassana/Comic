@@ -31,6 +31,9 @@
 		7AA3F99F1C9E123100F96A78 /* CharactersFeedAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA3F99E1C9E123100F96A78 /* CharactersFeedAdapter.swift */; };
 		7AA3F9A31C9E129500F96A78 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA3F9A21C9E129500F96A78 /* TableViewCell.swift */; };
 		7AA3F9A51C9E12C400F96A78 /* CharactersFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA3F9A41C9E12C400F96A78 /* CharactersFeedCell.swift */; };
+		7AA3F9A81C9EBC4C00F96A78 /* DeviceSizeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA3F9A71C9EBC4C00F96A78 /* DeviceSizeService.swift */; };
+		7AA3F9AD1C9EBEFE00F96A78 /* UIFont+Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA3F9AC1C9EBEFE00F96A78 /* UIFont+Comic.swift */; };
+		7AA3F9AF1C9EBF0C00F96A78 /* UIColor+Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA3F9AE1C9EBF0C00F96A78 /* UIColor+Comic.swift */; };
 		9AA496AE5DF3E4372A63D032 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B43145940D82AB12986AAB3 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +67,9 @@
 		7AA3F99E1C9E123100F96A78 /* CharactersFeedAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersFeedAdapter.swift; sourceTree = "<group>"; };
 		7AA3F9A21C9E129500F96A78 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		7AA3F9A41C9E12C400F96A78 /* CharactersFeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersFeedCell.swift; sourceTree = "<group>"; };
+		7AA3F9A71C9EBC4C00F96A78 /* DeviceSizeService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceSizeService.swift; sourceTree = "<group>"; };
+		7AA3F9AC1C9EBEFE00F96A78 /* UIFont+Comic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Comic.swift"; sourceTree = "<group>"; };
+		7AA3F9AE1C9EBF0C00F96A78 /* UIColor+Comic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Comic.swift"; sourceTree = "<group>"; };
 		7AB2C4211C9C489200F7C617 /* Comic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Comic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -102,6 +108,7 @@
 				7AA3F9991C9DC88500F96A78 /* NSDateFormatter */,
 				7AA3F96E1C9D571B00F96A78 /* String */,
 				7AA3F92A1C9C4CC800F96A78 /* UIColor */,
+				7AA3F9AB1C9EBED300F96A78 /* UIFont */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -109,6 +116,7 @@
 		7AA3F92A1C9C4CC800F96A78 /* UIColor */ = {
 			isa = PBXGroup;
 			children = (
+				7AA3F9AA1C9EBECC00F96A78 /* Comic */,
 				7AA3F92B1C9C4CC800F96A78 /* Hex */,
 			);
 			path = UIColor;
@@ -186,6 +194,7 @@
 		7AA3F9351C9C4CC800F96A78 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				7AA3F9A61C9EBC3900F96A78 /* DeviceSize */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -409,6 +418,30 @@
 			path = Abstract;
 			sourceTree = "<group>";
 		};
+		7AA3F9A61C9EBC3900F96A78 /* DeviceSize */ = {
+			isa = PBXGroup;
+			children = (
+				7AA3F9A71C9EBC4C00F96A78 /* DeviceSizeService.swift */,
+			);
+			path = DeviceSize;
+			sourceTree = "<group>";
+		};
+		7AA3F9AA1C9EBECC00F96A78 /* Comic */ = {
+			isa = PBXGroup;
+			children = (
+				7AA3F9AE1C9EBF0C00F96A78 /* UIColor+Comic.swift */,
+			);
+			path = Comic;
+			sourceTree = "<group>";
+		};
+		7AA3F9AB1C9EBED300F96A78 /* UIFont */ = {
+			isa = PBXGroup;
+			children = (
+				7AA3F9AC1C9EBEFE00F96A78 /* UIFont+Comic.swift */,
+			);
+			path = UIFont;
+			sourceTree = "<group>";
+		};
 		7AB2C4181C9C489200F7C617 = {
 			isa = PBXGroup;
 			children = (
@@ -571,6 +604,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AA3F9AD1C9EBEFE00F96A78 /* UIFont+Comic.swift in Sources */,
 				7AA3F9951C9D875600F96A78 /* CharactersParserOperation.swift in Sources */,
 				7AA3F93C1C9C4CC800F96A78 /* AppDelegate.swift in Sources */,
 				7AA3F94D1C9C57E400F96A78 /* Parser.swift in Sources */,
@@ -579,12 +613,14 @@
 				7AA3F9881C9D7D5200F96A78 /* Character+CoreDataProperties.swift in Sources */,
 				7AA3F93D1C9C4CC800F96A78 /* UIColor+Hex.swift in Sources */,
 				7AA3F99B1C9DC8A500F96A78 /* NSDateFormatter+ServerResponse.swift in Sources */,
+				7AA3F9AF1C9EBF0C00F96A78 /* UIColor+Comic.swift in Sources */,
 				7AA3F9851C9D68AA00F96A78 /* CharacterFeed.swift in Sources */,
 				7AA3F9461C9C4FFF00F96A78 /* RootNavigationController.swift in Sources */,
 				7AA3F96A1C9D51B400F96A78 /* CharactersAPIManager.swift in Sources */,
 				7AA3F9A51C9E12C400F96A78 /* CharactersFeedCell.swift in Sources */,
 				7AA3F9981C9D877500F96A78 /* CharactersFeedParser.swift in Sources */,
 				7AA3F9671C9D518600F96A78 /* CharacterRequest.swift in Sources */,
+				7AA3F9A81C9EBC4C00F96A78 /* DeviceSizeService.swift in Sources */,
 				7AA3F9641C9D516000F96A78 /* CharactersFeedViewController.swift in Sources */,
 				7AA3F9961C9D875600F96A78 /* CharactersParser.swift in Sources */,
 				7AA3F9561C9C5B7F00F96A78 /* Request.swift in Sources */,

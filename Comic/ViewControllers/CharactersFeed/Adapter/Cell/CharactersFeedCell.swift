@@ -29,7 +29,7 @@ class CharactersFeedCell: TableViewCell {
         descriptionLabel.backgroundColor = UIColor.whiteColor()
         descriptionLabel.textAlignment = .Left
         descriptionLabel.text = "No descripton avalaible"
-        descriptionLabel.numberOfLines = 2
+        descriptionLabel.numberOfLines = 4
         
         return descriptionLabel
     }()
@@ -45,7 +45,7 @@ class CharactersFeedCell: TableViewCell {
     
         let separationLine = UIView.newAutoLayoutView()
         
-        separationLine.backgroundColor = UIColor.lightGrayColor()
+        separationLine.backgroundColor = UIColor.altoColor()
         
         return separationLine
     }()
@@ -71,29 +71,29 @@ class CharactersFeedCell: TableViewCell {
     
     override func updateConstraints() {
         
-        characterImageView.autoPinEdgeToSuperviewEdge(.Top, withInset: 10.0)
-        characterImageView.autoPinEdgeToSuperviewEdge(.Bottom, withInset: 10.0)
-        characterImageView.autoPinEdgeToSuperviewEdge(.Left, withInset: 10.0)
-        characterImageView.autoSetDimension(.Width, toSize: 100.0)
+        characterImageView.autoPinEdgeToSuperviewEdge(.Top, withInset: 10.0 * DeviceSizeService.sharedInstance.resizeFactor)
+        characterImageView.autoPinEdgeToSuperviewEdge(.Bottom, withInset: 10.0 * DeviceSizeService.sharedInstance.resizeFactor)
+        characterImageView.autoPinEdgeToSuperviewEdge(.Left, withInset: 10.0 * DeviceSizeService.sharedInstance.resizeFactor)
+        characterImageView.autoSetDimension(.Width, toSize: 100.0 * DeviceSizeService.sharedInstance.resizeFactor)
         
         /*-------------------*/
 
-        nameLabel.autoPinEdgeToSuperviewEdge(.Top, withInset: 10.0)
-        nameLabel.autoPinEdge(.Left, toEdge: .Right, ofView: characterImageView, withOffset: 10.0)
-        nameLabel.autoSetDimension(.Height, toSize: 30.0)
+        nameLabel.autoPinEdgeToSuperviewEdge(.Top, withInset: 10.0 * DeviceSizeService.sharedInstance.resizeFactor)
+        nameLabel.autoPinEdge(.Left, toEdge: .Right, ofView: characterImageView, withOffset: 10.0 * DeviceSizeService.sharedInstance.resizeFactor)
+        nameLabel.autoSetDimension(.Height, toSize: 30.0 * DeviceSizeService.sharedInstance.resizeFactor)
         
         /*-------------------*/
 
-        descriptionLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: nameLabel, withOffset: 5.0)
-        descriptionLabel.autoPinEdge(.Left, toEdge: .Right, ofView: characterImageView, withOffset: 10.0)
-        descriptionLabel.autoPinEdgeToSuperviewEdge(.Right, withInset: 10.0)
+        descriptionLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: nameLabel, withOffset: 5.0 * DeviceSizeService.sharedInstance.resizeFactor)
+        descriptionLabel.autoPinEdge(.Left, toEdge: .Right, ofView: characterImageView, withOffset: 10.0 * DeviceSizeService.sharedInstance.resizeFactor)
+        descriptionLabel.autoPinEdgeToSuperviewEdge(.Right, withInset: 10.0 * DeviceSizeService.sharedInstance.resizeFactor)
 
         /*-------------------*/
         
-        separationLine.autoPinEdgeToSuperviewEdge(.Right, withInset: 10.0)
+        separationLine.autoPinEdgeToSuperviewEdge(.Right, withInset: 10.0 * DeviceSizeService.sharedInstance.resizeFactor)
         separationLine.autoPinEdgeToSuperviewEdge(.Bottom)
-        separationLine.autoPinEdgeToSuperviewEdge(.Left, withInset: 10.0)
-        separationLine.autoSetDimension(.Height, toSize: 0.5)
+        separationLine.autoPinEdgeToSuperviewEdge(.Left, withInset: 10.0 * DeviceSizeService.sharedInstance.resizeFactor)
+        separationLine.autoSetDimension(.Height, toSize: 0.5 * DeviceSizeService.sharedInstance.resizeFactor)
         
         /*-------------------*/
 
@@ -121,8 +121,8 @@ class CharactersFeedCell: TableViewCell {
         
         super.prepareForReuse()
         
-        textLabel?.text = nil
-        backgroundColor = UIColor.whiteColor()
-
+        nameLabel.text = nil
+        descriptionLabel.text = "No descripton avalaible"
+//        characterImageView.image = Placeholder
     }
 }
