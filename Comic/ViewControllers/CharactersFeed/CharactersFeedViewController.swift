@@ -9,12 +9,29 @@
 import UIKit
 
 import CoreDataFullStack
+import PureLayout
 
-class CharactersFeedViewController: UIViewController {
+class CharactersFeedViewController: UIViewController, CharactersFeedAdapterDelegate {
 
     //MARK: - Accessors
 
+//    let characterDetail: CharacterDetailViewController!
     
+    var tableView: UITableView = {
+       
+        let tableView: UITableView = UITableView.newAutoLayoutView()
+        
+        return tableView
+    }()
+    
+    lazy var adapter: CharactersFeedAdapter = {
+        
+        let adapter = CharactersFeedAdapter()
+        
+        adapter.delegate = self
+        
+        return adapter
+    }()
     
     //MARK: - ViewLifeCycle
     
@@ -26,7 +43,27 @@ class CharactersFeedViewController: UIViewController {
         
         /*-------------------*/
 
+        view.addSubview(tableView)
+        adapter.tableView = tableView
+        
+        /*-------------------*/
+
         paginate()
+        
+        /*-------------------*/
+        
+        updateViewConstraints()
+    }
+    
+    //MARK: - Constraints
+    
+    override func updateViewConstraints() {
+        
+        super.updateViewConstraints()
+        
+        /*-------------------*/
+        
+        tableView.autoPinEdgesToSuperviewEdges()
     }
     
     //MARK: - RetrieveData
