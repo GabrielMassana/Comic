@@ -18,6 +18,7 @@ class CharactersFeedParser: Parser {
         
         let feed: CharacterFeed = CharacterFeed.fetchCharactersFeed(CDFCoreDataManager.sharedInstance().backgroundManagedObjectContext)
         
+        // TODO security HERE! May crash if no data
         let data: NSDictionary = serverResponse["data"]! as! NSDictionary
         let total: NSNumber = data["total"]! as! NSNumber
         
