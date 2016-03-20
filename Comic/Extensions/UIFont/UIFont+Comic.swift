@@ -10,9 +10,9 @@ import UIKit
 
 extension UIFont {
     
-//    class func altoColor() -> UIFont {
-//        
-//        
-//    
-//    }
+    class func altoColor() -> UIFont {
+        
+        
+    
+    }
 }
