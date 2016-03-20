@@ -16,14 +16,11 @@ class CharacterDetailViewController: UIViewController {
     
     lazy var titleViewLabel: UILabel = {
         
-        let titleViewLabel: UILabel = UILabel(frame: CGRect.init(x: 0.0, y: 0.0, width: 100.0, height: 20.0))
+        let titleViewLabel: UILabel = UILabel(frame: CGRect.init(x: 0.0, y: 0.0, width: 100.0, height: 25.0))
         
         titleViewLabel.text = "Character Details"
         titleViewLabel.textAlignment = .Center
         titleViewLabel.font = UIFont.tradeGothicNo2BoldWithSize(20.0)
-        titleViewLabel.numberOfLines = 2
-        titleViewLabel.adjustsFontSizeToFitWidth = true
-        titleViewLabel.minimumScaleFactor = 0.5
         
         return titleViewLabel
     }()
@@ -315,7 +312,7 @@ class CharacterDetailViewController: UIViewController {
         
         descriptionLabel.autoPinEdgeToSuperviewEdge(.Left, withInset: 10.0 * DeviceSizeService.sharedInstance.resizeFactor)
         descriptionLabel.autoPinEdgeToSuperviewEdge(.Right, withInset: 10.0 * DeviceSizeService.sharedInstance.resizeFactor)
-        descriptionLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: nameLabel, withOffset: 10.0 * DeviceSizeService.sharedInstance.resizeFactor)
+        descriptionLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: nameLabel, withOffset: 4.0 * DeviceSizeService.sharedInstance.resizeFactor)
         
         /*-------------------*/
         

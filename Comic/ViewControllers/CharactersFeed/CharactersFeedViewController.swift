@@ -38,7 +38,7 @@ class CharactersFeedViewController: UIViewController, CharactersFeedAdapterDeleg
     
     var titleViewLabel: UILabel = {
        
-        let titleViewLabel: UILabel = UILabel(frame: CGRect.init(x: 0.0, y: 0.0, width: 100.0, height: 20.0))
+        let titleViewLabel: UILabel = UILabel(frame: CGRect.init(x: 0.0, y: 0.0, width: 100.0, height: 25.0))
         
         titleViewLabel.text = "Characters"
         titleViewLabel.textAlignment = .Center
