@@ -231,7 +231,7 @@ class CharacterDetailViewController: UIViewController {
         comicButton.titleLabel!.lineBreakMode = .ByWordWrapping
         comicButton.titleLabel!.font = UIFont.tradeGothicNo2BoldWithSize(20.0)
         comicButton.titleLabel!.textColor = UIColor.whiteColor()
-        comicButton.setTitle("COMICS\nLINKS", forState: .Normal)
+        comicButton.setTitle("COMIC\nLINKS", forState: .Normal)
         comicButton.addTarget(self, action: "comicButtonPresed:", forControlEvents: .TouchUpInside)
         
         comicButton.bbc_backgroundColorNormal(UIColor.blueLagoonColor(), backgroundColorHighlighted: UIColor.daintreeLagoonColor())

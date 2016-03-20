@@ -12,6 +12,8 @@ class CharactersFeedCell: TableViewCell {
 
     //MARK: - Accessors
 
+    var character: Character?
+    
     private var nameLabel: UILabel = {
         
         let nameLabel: UILabel = UILabel.newAutoLayoutView()
@@ -116,7 +118,9 @@ class CharactersFeedCell: TableViewCell {
     
     func configureWithCharacter(character: Character) {
         
-        nameLabel.text = character.name
+        self.character = character
+        
+        nameLabel.text = character.name        
         
         if let characterDescription = character.characterDescription {
             
@@ -124,6 +128,17 @@ class CharactersFeedCell: TableViewCell {
                 
                 descriptionLabel.text = character.characterDescription
             }
+        }
+        
+        MediaAPIManager.retrieveMediaAsset(MediaAspectRatio.Square, character: character) { (imageCharacter: Character, mediaImage: UIImage?) -> Void in
+            
+                if self.character!.characterID == imageCharacter.characterID {
+                    
+                    dispatch_async(dispatch_get_main_queue(),{
+
+                        self.characterImageView.image = mediaImage
+                    })
+                }
         }
     }
     
@@ -136,5 +151,6 @@ class CharactersFeedCell: TableViewCell {
         nameLabel.text = nil
         descriptionLabel.text = "No descripton avalaible"
         characterImageView.image = nil
+        character = nil
     }
 }

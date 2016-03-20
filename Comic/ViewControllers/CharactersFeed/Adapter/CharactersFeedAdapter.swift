@@ -143,20 +143,7 @@ class CharactersFeedAdapter: NSObject, UITableViewDelegate, UITableViewDataSourc
         let cell = tableView.dequeueReusableCellWithIdentifier(CharactersFeedCell.reuseIdentifier(), forIndexPath: indexPath) as! CharactersFeedCell
         
         configureCell(cell, indexPath: indexPath)
-        
-        let character: Character = fetchedResultsController.fetchedObjects![indexPath.row] as! Character
-        
-        MediaAPIManager.retrieveMediaAsset(MediaAspectRatio.Square, character: character) { (imageCharacter: Character, mediaImage: UIImage?) -> Void in
-            
-            if character.characterID == imageCharacter.characterID {
-                
-                dispatch_async(dispatch_get_main_queue(),{
-                    
-                    cell.characterImageView.image = mediaImage
-                })
-            }
-        }
-        
+
         cell.layoutByApplyingConstraints()
         
         return cell
