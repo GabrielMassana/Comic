@@ -296,7 +296,7 @@ class CharacterDetailViewController: UIViewController {
         
         super.updateViewConstraints()
         
-        let buttonDimension: CGFloat = (CGRectGetWidth(UIScreen.mainScreen().bounds) - 40.0) / 3.0
+        let buttonDimension: CGFloat = (CGRectGetWidth(UIScreen.mainScreen().bounds) - (40.0 * DeviceSizeService.sharedInstance.resizeFactor)) / 3.0
         
         /*-------------------*/
         
