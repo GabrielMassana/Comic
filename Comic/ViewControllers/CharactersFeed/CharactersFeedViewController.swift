@@ -232,7 +232,6 @@ class CharactersFeedViewController: UIViewController, CharactersFeedAdapterDeleg
     
     func didSelectCharacter(character: Character) {
     
-        print(character.name)
         characterDetail = CharacterDetailViewController(character: character)
         
         self.navigationController?.pushViewController(characterDetail!, animated: true)
