@@ -18,6 +18,9 @@ class CharactersFeedCell: TableViewCell {
         
         nameLabel.backgroundColor = UIColor.whiteColor()
         nameLabel.textAlignment = .Left
+        nameLabel.font = UIFont.tradeGothicNo2BoldWithSize(17.0)
+        nameLabel.adjustsFontSizeToFitWidth = true
+        nameLabel.minimumScaleFactor = 0.5
         
         return nameLabel
     }()
@@ -29,7 +32,9 @@ class CharactersFeedCell: TableViewCell {
         descriptionLabel.backgroundColor = UIColor.whiteColor()
         descriptionLabel.textAlignment = .Left
         descriptionLabel.text = "No descripton avalaible"
-        descriptionLabel.numberOfLines = 4
+        descriptionLabel.numberOfLines = 5
+        descriptionLabel.font = UIFont.tradeGothicLTWithSize(10.0)
+        descriptionLabel.textColor = UIColor.scorpionColor()
         
         return descriptionLabel
     }()
@@ -81,7 +86,8 @@ class CharactersFeedCell: TableViewCell {
         nameLabel.autoPinEdgeToSuperviewEdge(.Top, withInset: 10.0 * DeviceSizeService.sharedInstance.resizeFactor)
         nameLabel.autoPinEdge(.Left, toEdge: .Right, ofView: characterImageView, withOffset: 10.0 * DeviceSizeService.sharedInstance.resizeFactor)
         nameLabel.autoSetDimension(.Height, toSize: 30.0 * DeviceSizeService.sharedInstance.resizeFactor)
-        
+        nameLabel.autoPinEdgeToSuperviewEdge(.Right, withInset: 10.0 * DeviceSizeService.sharedInstance.resizeFactor)
+
         /*-------------------*/
 
         descriptionLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: nameLabel, withOffset: 5.0 * DeviceSizeService.sharedInstance.resizeFactor)

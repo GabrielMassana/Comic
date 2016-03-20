@@ -16,4 +16,9 @@ extension UIColor {
         
         return UIColor.colorWithHex("DFDFDF")!
     }
+    
+    class func scorpionColor() -> UIColor {
+        
+        return UIColor.colorWithHex("606060")!
+    }
 }
