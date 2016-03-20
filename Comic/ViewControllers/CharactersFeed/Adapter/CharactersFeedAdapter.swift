@@ -94,8 +94,6 @@ class CharactersFeedAdapter: NSObject, UITableViewDelegate, UITableViewDataSourc
         cell.configureWithCharacter(character)
     }
     
-    //MARK: - UITableViewDelegate
-    
     //MARK: - UITableViewDataSource
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
