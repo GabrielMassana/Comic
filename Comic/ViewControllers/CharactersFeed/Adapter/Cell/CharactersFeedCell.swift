@@ -150,7 +150,7 @@ class CharactersFeedCell: TableViewCell {
         
         nameLabel.text = nil
         descriptionLabel.text = "No descripton avalaible"
-        characterImageView.image = nil
+        characterImageView.image = UIImage(named: "icon-cell-placeholder")
         character = nil
     }
 }
