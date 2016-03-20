@@ -3,3 +3,7 @@
 //
 
 #import <CommonCrypto/CommonCrypto.h>
+
+#import <ConvenientFileManager/NSFileManager+CFMPersistence.h>
+#import <ConvenientFileManager/NSFileManager+CFMCache.h>
+#import <ConvenientFileManager/NSFileManager+CFMDocuments.h>
