@@ -10,23 +10,24 @@ import UIKit
 
 import CoreNetworking
 
-let aspectRatio_square_standard_xlarge: String = "standard_xlarge"
-let aspectRatio_square_landscape_incredible: String = "landscape_incredible"
+enum MediaAspectRatio: String {
+    
+    case Square = "standard_xlarge"
+    case Landscape = "landscape_incredible"
+}
 
 class MediaAPIManager: NSObject {
 
-    class func retrieveMediaAssetForCell(character: Character, completion:((imageCharacter: Character, mediaImage: UIImage?) -> Void)?) {
+    class func retrieveMediaAsset(mediaAspectRatio: MediaAspectRatio, character: Character, completion:((imageCharacter: Character, mediaImage: UIImage?) -> Void)?) {
     
         let documentsDirectory: String = NSFileManager.cfm_documentsDirectoryPath()
-        let absolutePath: String = documentsDirectory.stringByAppendingString(String(format: "/%@_0", character.characterID!))
+        let absolutePath: String = documentsDirectory.stringByAppendingString(String(format: "/%@_%@", character.characterID!, mediaAspectRatio.rawValue))
         
         NSFileManager.cfm_fileExistsAtPath(absolutePath) { (fileExists: Bool) -> Void in
             
-            print(fileExists)
-            
             if fileExists {
                 
-                let documentName: String = String(format: "%@_0", character.characterID!)
+                let documentName: String = String(format: "%@_%@", character.characterID!, mediaAspectRatio.rawValue)
                 
                 let imageData = NSFileManager.cfm_retrieveDataFromDocumentsDirectoryWithPath(documentName)
                 
@@ -53,7 +54,7 @@ class MediaAPIManager: NSObject {
                     
                     if let thumbnailExtension = character.thumbnailExtension {
                         
-                        let urlString: String = String(format: "%@/%@.%@", thumbnailPath, aspectRatio_square_standard_xlarge, thumbnailExtension)
+                        let urlString: String = String(format: "%@/%@.%@", thumbnailPath, mediaAspectRatio.rawValue, thumbnailExtension)
 
                         //TODO create request
                         let request: Request = Request.requestForAPI()
@@ -72,7 +73,7 @@ class MediaAPIManager: NSObject {
                                     completion!(imageCharacter: character, mediaImage: image)
                                 }
                                 
-                                let documentName: String = String(format: "%@_0", character.characterID!)
+                                let documentName: String = String(format: "%@_%@", character.characterID!, mediaAspectRatio.rawValue)
 
                                 NSFileManager.cfm_saveData(data, toDocumentsDirectoryPath: documentName)
                             }

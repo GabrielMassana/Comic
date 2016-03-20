@@ -18,7 +18,7 @@ class CharactersFeedViewController: UIViewController, CharactersFeedAdapterDeleg
 
     //MARK: - Accessors
 
-//    let characterDetail: CharacterDetailViewController!
+    var characterDetail: CharacterDetailViewController?
     
     var tableView: UITableView = {
        
@@ -39,6 +39,7 @@ class CharactersFeedViewController: UIViewController, CharactersFeedAdapterDeleg
     var titleViewLabel: UILabel = {
        
         let titleViewLabel: UILabel = UILabel(frame: CGRect.init(x: 0.0, y: 0.0, width: 100.0, height: 20.0))
+        
         titleViewLabel.text = "Characters"
         titleViewLabel.textAlignment = .Center
         titleViewLabel.font = UIFont.tradeGothicNo2BoldWithSize(20.0)
@@ -225,5 +226,15 @@ class CharactersFeedViewController: UIViewController, CharactersFeedAdapterDeleg
         textField.text? = ""
         
         return true
+    }
+    
+    //MARK: - CharactersFeedAdapterDelegate
+    
+    func didSelectCharacter(character: Character) {
+    
+        print(character.name)
+        characterDetail = CharacterDetailViewController(character: character)
+        
+        self.navigationController?.pushViewController(characterDetail!, animated: true)
     }
 }

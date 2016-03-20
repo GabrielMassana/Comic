@@ -21,4 +21,34 @@ extension UIColor {
         
         return UIColor.colorWithHex("606060")!
     }
+    
+    class func redRibbonColor() -> UIColor {
+        
+        return UIColor.colorWithHex("EF1223")!
+    }
+    
+    class func monarchColor() -> UIColor {
+        
+        return UIColor.colorWithHex("800A13")!
+    }
+    
+    class func coniferColor() -> UIColor {
+        
+        return UIColor.colorWithHex("AAD749")!
+    }
+    
+    class func oliveDrabColor() -> UIColor {
+        
+        return UIColor.colorWithHex("638122")!
+    }
+    
+    class func blueLagoonColor() -> UIColor {
+        
+        return UIColor.colorWithHex("047792")!
+    }
+    
+    class func daintreeLagoonColor() -> UIColor {
+        
+        return UIColor.colorWithHex("02303B")!
+    }
 }

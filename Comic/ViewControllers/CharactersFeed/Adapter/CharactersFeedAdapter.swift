@@ -12,7 +12,7 @@ import CoreDataFullStack
 
 protocol CharactersFeedAdapterDelegate: class {
     
-
+    func didSelectCharacter(character: Character)
 }
 
 class CharactersFeedAdapter: NSObject, UITableViewDelegate, UITableViewDataSource {
@@ -122,6 +122,15 @@ class CharactersFeedAdapter: NSObject, UITableViewDelegate, UITableViewDataSourc
         cell.configureWithCharacter(character)
     }
     
+    //MARK: - UITableViewDelegate
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let character: Character = fetchedResultsController.fetchedObjects![indexPath.row] as! Character
+
+        self.delegate?.didSelectCharacter(character)
+    }
+    
     //MARK: - UITableViewDataSource
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -137,7 +146,7 @@ class CharactersFeedAdapter: NSObject, UITableViewDelegate, UITableViewDataSourc
         
         let character: Character = fetchedResultsController.fetchedObjects![indexPath.row] as! Character
         
-        MediaAPIManager.retrieveMediaAssetForCell(character) { (imageCharacter: Character, mediaImage: UIImage?) -> Void in
+        MediaAPIManager.retrieveMediaAsset(MediaAspectRatio.Square, character: character) { (imageCharacter: Character, mediaImage: UIImage?) -> Void in
             
             if character.characterID == imageCharacter.characterID {
                 

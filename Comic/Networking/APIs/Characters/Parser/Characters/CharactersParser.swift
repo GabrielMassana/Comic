@@ -88,6 +88,10 @@ class CharactersParser: Parser {
                 character?.totalEvents = comics!["available"] as? NSNumber
             }
             
+            character?.detailURL = ""
+            character?.wikiURL = ""
+            character?.comicLinkURL = ""
+
             if let _ = urls {
                 
                 for url in urls! {
