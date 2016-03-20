@@ -13,3 +13,4 @@ pod 'CoreNetworking', '~> 1.0'
 #External Libraries
 
 pod 'PureLayout'
+pod 'ConvenientFileManager', '~> 1.0'

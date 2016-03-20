@@ -109,6 +109,12 @@ class CharactersFeedAdapter: NSObject, UITableViewDelegate, UITableViewDataSourc
         
         configureCell(cell, indexPath: indexPath)
         
+        let character: Character = fetchedResultsController.fetchedObjects![indexPath.row] as! Character
+        
+        MediaAPIManager.retrieveMediaAssetForCell(character) { (character, mediaImage) -> Void in
+            
+        }
+        
         cell.layoutByApplyingConstraints()
         
         return cell

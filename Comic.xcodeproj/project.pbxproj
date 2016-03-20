@@ -37,6 +37,7 @@
 		7AA3F9BC1C9EC3B000F96A78 /* TradeGothicLT.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7AA3F9B91C9EC3B000F96A78 /* TradeGothicLT.ttf */; };
 		7AA3F9BD1C9EC3B000F96A78 /* TradeGothicNo.2-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7AA3F9BA1C9EC3B000F96A78 /* TradeGothicNo.2-Bold.ttf */; };
 		7AA3F9C01C9EC3B900F96A78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AA3F9BF1C9EC3B900F96A78 /* Assets.xcassets */; };
+		7AA3F9C31C9ED40A00F96A78 /* MediaAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA3F9C21C9ED40A00F96A78 /* MediaAPIManager.swift */; };
 		9AA496AE5DF3E4372A63D032 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B43145940D82AB12986AAB3 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +77,7 @@
 		7AA3F9B91C9EC3B000F96A78 /* TradeGothicLT.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TradeGothicLT.ttf; sourceTree = "<group>"; };
 		7AA3F9BA1C9EC3B000F96A78 /* TradeGothicNo.2-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TradeGothicNo.2-Bold.ttf"; sourceTree = "<group>"; };
 		7AA3F9BF1C9EC3B900F96A78 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7AA3F9C21C9ED40A00F96A78 /* MediaAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaAPIManager.swift; sourceTree = "<group>"; };
 		7AB2C4211C9C489200F7C617 /* Comic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Comic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -238,6 +240,7 @@
 			children = (
 				7AA3F9491C9C574C00F96A78 /* Abstract */,
 				7AA3F9681C9D51B400F96A78 /* Characters */,
+				7AA3F9C11C9ED3C300F96A78 /* Media */,
 			);
 			path = APIs;
 			sourceTree = "<group>";
@@ -459,6 +462,14 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
+		7AA3F9C11C9ED3C300F96A78 /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				7AA3F9C21C9ED40A00F96A78 /* MediaAPIManager.swift */,
+			);
+			path = Media;
+			sourceTree = "<group>";
+		};
 		7AB2C4181C9C489200F7C617 = {
 			isa = PBXGroup;
 			children = (
@@ -639,6 +650,7 @@
 				7AA3F96A1C9D51B400F96A78 /* CharactersAPIManager.swift in Sources */,
 				7AA3F9A51C9E12C400F96A78 /* CharactersFeedCell.swift in Sources */,
 				7AA3F9981C9D877500F96A78 /* CharactersFeedParser.swift in Sources */,
+				7AA3F9C31C9ED40A00F96A78 /* MediaAPIManager.swift in Sources */,
 				7AA3F9671C9D518600F96A78 /* CharacterRequest.swift in Sources */,
 				7AA3F9A81C9EBC4C00F96A78 /* DeviceSizeService.swift in Sources */,
 				7AA3F9641C9D516000F96A78 /* CharactersFeedViewController.swift in Sources */,

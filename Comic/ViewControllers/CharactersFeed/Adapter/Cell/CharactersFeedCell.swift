@@ -42,6 +42,9 @@ class CharactersFeedCell: TableViewCell {
     var characterImageView: UIImageView = {
         
         let characterImageView: UIImageView = UIImageView.newAutoLayoutView()
+        characterImageView.image = UIImage(named: "icon-cell-placeholder")
+        characterImageView.layer.borderWidth = 0.0;
+        characterImageView.layer.cornerRadius = 14.0 * DeviceSizeService.sharedInstance.resizeFactor;
         
         return characterImageView
     }()
@@ -129,6 +132,6 @@ class CharactersFeedCell: TableViewCell {
         
         nameLabel.text = nil
         descriptionLabel.text = "No descripton avalaible"
-//        characterImageView.image = Placeholder
+        characterImageView.image = UIImage(named: "icon-cell-placeholder")
     }
 }
