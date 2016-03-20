@@ -111,13 +111,15 @@ class CharactersFeedAdapter: NSObject, UITableViewDelegate, UITableViewDataSourc
         
         let character: Character = fetchedResultsController.fetchedObjects![indexPath.row] as! Character
         
-        MediaAPIManager.retrieveMediaAssetForCell(character) { (character, mediaImage) -> Void in
+        MediaAPIManager.retrieveMediaAssetForCell(character) { (imageCharacter: Character, mediaImage: UIImage?) -> Void in
             
-            //TODO check if same character
-            dispatch_async(dispatch_get_main_queue(),{
+            if character.characterID == imageCharacter.characterID {
                 
-                cell.characterImageView.image = mediaImage
-            })
+                dispatch_async(dispatch_get_main_queue(),{
+                    
+                    cell.characterImageView.image = mediaImage
+                })
+            }
         }
         
         cell.layoutByApplyingConstraints()

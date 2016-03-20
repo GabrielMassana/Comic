@@ -15,7 +15,7 @@ let aspectRatio_square_landscape_incredible: String = "landscape_incredible"
 
 class MediaAPIManager: NSObject {
 
-    class func retrieveMediaAssetForCell(character: Character, completion:((character: Character, mediaImage: UIImage?) -> Void)?) {
+    class func retrieveMediaAssetForCell(character: Character, completion:((imageCharacter: Character, mediaImage: UIImage?) -> Void)?) {
     
         let documentsDirectory: String = NSFileManager.cfm_documentsDirectoryPath()
         let absolutePath: String = documentsDirectory.stringByAppendingString(String(format: "/%@_0", character.characterID!))
@@ -36,14 +36,14 @@ class MediaAPIManager: NSObject {
                     
                     if let _ = completion {
                         
-                        completion!(character: character, mediaImage: image)
+                        completion!(imageCharacter: character, mediaImage: image)
                     }
                 }
                 else
                 {
                     if let _ = completion {
                         
-                        completion!(character: character, mediaImage: nil)
+                        completion!(imageCharacter: character, mediaImage: nil)
                     }
                 }
             }
@@ -69,7 +69,7 @@ class MediaAPIManager: NSObject {
 
                                 if let _ = completion {
                                     
-                                    completion!(character: character, mediaImage: image)
+                                    completion!(imageCharacter: character, mediaImage: image)
                                 }
                                 
                                 let documentName: String = String(format: "%@_0", character.characterID!)
@@ -80,7 +80,7 @@ class MediaAPIManager: NSObject {
                             {
                                 if let _ = completion {
                                     
-                                    completion!(character: character, mediaImage: nil)
+                                    completion!(imageCharacter: character, mediaImage: nil)
                                 }
                             }
                         }
