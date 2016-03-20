@@ -42,6 +42,7 @@ class CharactersFeedCell: TableViewCell {
     var characterImageView: UIImageView = {
         
         let characterImageView: UIImageView = UIImageView.newAutoLayoutView()
+        
         characterImageView.image = UIImage(named: "icon-cell-placeholder")
         characterImageView.layer.borderWidth = 0.0;
         characterImageView.layer.cornerRadius = 14.0 * DeviceSizeService.sharedInstance.resizeFactor;
@@ -63,6 +64,8 @@ class CharactersFeedCell: TableViewCell {
     override init(style: UITableViewCellStyle,reuseIdentifier: String?) {
         
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        selectionStyle = .None
         
         contentView.addSubview(nameLabel)
         contentView.addSubview(descriptionLabel)
@@ -132,6 +135,6 @@ class CharactersFeedCell: TableViewCell {
         
         nameLabel.text = nil
         descriptionLabel.text = "No descripton avalaible"
-        characterImageView.image = UIImage(named: "icon-cell-placeholder")
+        characterImageView.image = nil
     }
 }

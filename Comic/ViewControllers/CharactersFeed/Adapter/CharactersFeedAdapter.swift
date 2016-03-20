@@ -59,15 +59,15 @@ class CharactersFeedAdapter: NSObject, UITableViewDelegate, UITableViewDataSourc
         return fetchedResultsController
     }()
     
-    lazy var fetchRequest: NSFetchRequest = {
+    var fetchRequest: NSFetchRequest {
         
         let fetchRequest = NSFetchRequest()
         
         fetchRequest.entity = NSEntityDescription.entityForName(NSStringFromClass(Character.self), inManagedObjectContext: CDFCoreDataManager.sharedInstance().managedObjectContext)
-        fetchRequest.sortDescriptors = self.sortDescriptors
+        fetchRequest.sortDescriptors = sortDescriptors
         
         return fetchRequest
-    }()
+    }
     
     lazy var sortDescriptors: Array<NSSortDescriptor> = {
         
@@ -75,6 +75,34 @@ class CharactersFeedAdapter: NSObject, UITableViewDelegate, UITableViewDataSourc
         
         return [sortDescriptors]
     }()
+    
+    //MARK: - SearchTextField
+
+    func filterTableViewWithSearchCriteria(searchCriteria: String) {
+        
+        if searchCriteria.characters.count > 0 {
+            
+            let predicate: NSPredicate = NSPredicate(format: "name CONTAINS[cd] %@", searchCriteria)
+            
+            fetchedResultsController.fetchRequest.predicate = predicate
+        }
+        else
+        {
+            let predicate: NSPredicate = NSPredicate(format: "NOT (name CONTAINS[cd] %@)", searchCriteria)
+
+            fetchedResultsController.fetchRequest.predicate = predicate
+        }
+        
+        do {
+            
+            try self.fetchedResultsController.performFetch()
+            tableView.reloadData()
+        }
+        catch
+        {
+            
+        }
+    }
     
     //MARK: - RegisterCells
     
