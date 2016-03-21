@@ -40,11 +40,13 @@ class CharactersFeedViewController: UIViewController, CharactersFeedAdapterDeleg
     
     var titleViewLabel: UILabel = {
        
-        let titleViewLabel: UILabel = UILabel(frame: CGRect.init(x: 0.0, y: 0.0, width: 100.0, height: 25.0))
+        let titleViewLabel: UILabel = UILabel(frame: CGRect.init(x: 0.0, y: 0.0, width: 200.0, height: 25.0))
         
         titleViewLabel.text = "Characters"
         titleViewLabel.textAlignment = .Center
         titleViewLabel.font = UIFont.tradeGothicNo2BoldWithSize(20.0)
+        titleViewLabel.adjustsFontSizeToFitWidth = true
+        titleViewLabel.minimumScaleFactor = 0.5
         
         return titleViewLabel
     }()
@@ -222,6 +224,19 @@ class CharactersFeedViewController: UIViewController, CharactersFeedAdapterDeleg
         adapter.filterTableViewWithSearchCriteria(searchCriteria)
     }
     
+    func updateTitleViewLabel(searchCriteria: String) {
+        
+        if searchCriteria.characters.count > 0 {
+            
+            titleViewLabel.text = String(format: "Name Contains: %@", searchCriteria)
+        }
+        else
+        {
+            titleViewLabel.text = "Characters"
+            
+        }
+    }
+    
     //MARK: - UITextFieldDelegate
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -231,6 +246,7 @@ class CharactersFeedViewController: UIViewController, CharactersFeedAdapterDeleg
         if let _ = textField.text {
             
             filterTableViewWithSearchCriteria(textField.text!)
+            updateTitleViewLabel(textField.text!)
         }
         
         textField.text? = ""
