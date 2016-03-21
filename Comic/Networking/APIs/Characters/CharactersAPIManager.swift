@@ -26,23 +26,30 @@ class CharactersAPIManager: APIManager {
         
         task.onCompletion = { (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
             
-            do {
-                let json: NSDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as! NSDictionary
+            if let _ = data {
                 
-                let operation: CharactersParserOperation = CharactersParserOperation(charactersResponse: json)
-                operation.operationQueueIdentifier = LocalDataOperationQueueTypeIdentifier
-
-                operation.onSuccess = { (result:AnyObject?) -> Void in
+                do {
+                    let json: NSDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as! NSDictionary
                     
-                    success(result: nil)
+                    let operation: CharactersParserOperation = CharactersParserOperation(charactersResponse: json)
+                    operation.operationQueueIdentifier = LocalDataOperationQueueTypeIdentifier
+                    
+                    operation.onSuccess = { (result:AnyObject?) -> Void in
+                        
+                        success(result: nil)
+                    }
+                    
+                    COMOperationQueueManager.sharedInstance().addOperation(operation)
                 }
-                
-                COMOperationQueueManager.sharedInstance().addOperation(operation)
+                catch
+                {
+                    print(error)
+                    failure(error: nil)
+                }
             }
-            catch
+            else
             {
-                print(error)
-                failure(error: nil)
+                failure(error: error)
             }
         }
         

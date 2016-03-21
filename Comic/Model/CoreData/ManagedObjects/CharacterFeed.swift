@@ -69,19 +69,10 @@ class CharacterFeed: NSManagedObject {
         // Only re-asking the Marvel API an hour after the failure.
         if let _: NSDate = lastServerFailure {
             
-            let dateComponents: NSDateComponents = NSDateComponents()
-            dateComponents.hour = 1
-            
-            let lastServerFailurePlusOneHour: NSDate = NSCalendar.currentCalendar().dateByAddingComponents(dateComponents, toDate: self.lastServerFailure!, options: NSCalendarOptions.WrapComponents)!
-            
-            if (lastServerFailurePlusOneHour.timeIntervalSinceReferenceDate > NSDate().timeIntervalSinceReferenceDate) {
+            if (self.lastServerFailure!.isDateOneHourOrMoreAgo()) {
                 
                 hasMoreContentToDownload = false
             }
-        }
-        else
-        {
-            print(lastServerFailure)
         }
 
         return hasMoreContentToDownload

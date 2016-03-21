@@ -42,6 +42,7 @@
 		9AA496AE5DF3E4372A63D032 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B43145940D82AB12986AAB3 /* Pods.framework */; };
 		C0F460CD1CA039A50058D8F3 /* CharactersParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F460CC1CA039A50058D8F3 /* CharactersParserTests.swift */; };
 		C0F460CF1CA039B50058D8F3 /* CharactersFeedParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F460CE1CA039B50058D8F3 /* CharactersFeedParserTests.swift */; };
+		C0F460F31CA07A910058D8F3 /* NSDate+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F460F21CA07A910058D8F3 /* NSDate+Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		C0F460C21CA0388E0058D8F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0F460CC1CA039A50058D8F3 /* CharactersParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersParserTests.swift; sourceTree = "<group>"; };
 		C0F460CE1CA039B50058D8F3 /* CharactersFeedParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersFeedParserTests.swift; sourceTree = "<group>"; };
+		C0F460F21CA07A910058D8F3 /* NSDate+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Utilities.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 		7AA3F9291C9C4CC800F96A78 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C0F460F11CA07A260058D8F3 /* NSDate */,
 				7AA3F9991C9DC88500F96A78 /* NSDateFormatter */,
 				7AA3F96E1C9D571B00F96A78 /* String */,
 				7AA3F92A1C9C4CC800F96A78 /* UIColor */,
@@ -582,6 +585,14 @@
 			path = Feed;
 			sourceTree = "<group>";
 		};
+		C0F460F11CA07A260058D8F3 /* NSDate */ = {
+			isa = PBXGroup;
+			children = (
+				C0F460F21CA07A910058D8F3 /* NSDate+Utilities.swift */,
+			);
+			path = NSDate;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -745,6 +756,7 @@
 				7AA3F93D1C9C4CC800F96A78 /* UIColor+Hex.swift in Sources */,
 				7AA3F99B1C9DC8A500F96A78 /* NSDateFormatter+ServerResponse.swift in Sources */,
 				7AA3F9AF1C9EBF0C00F96A78 /* UIColor+Comic.swift in Sources */,
+				C0F460F31CA07A910058D8F3 /* NSDate+Utilities.swift in Sources */,
 				7AA3F9851C9D68AA00F96A78 /* CharacterFeed.swift in Sources */,
 				7A739E541C9F046100B10A57 /* SearchTextField.swift in Sources */,
 				7AA3F9461C9C4FFF00F96A78 /* RootNavigationController.swift in Sources */,
