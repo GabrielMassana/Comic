@@ -22,9 +22,18 @@ class CharactersFeedViewController: UIViewController, CharactersFeedAdapterDeleg
     
     var characterDetail: CharacterDetailViewController?
     
-    var tableView: UITableView = {
+    lazy var emptyView: CharactersFeedEmptyView = {
+        
+        let emptyView: CharactersFeedEmptyView = CharactersFeedEmptyView(frame: CGRect.init(x: 0.0, y: 0.0, width: CGRectGetWidth(UIScreen.mainScreen().bounds), height: CGRectGetHeight(UIScreen.mainScreen().bounds) - NavigationBarHeight))
+        
+        return emptyView
+    }()
+    
+    lazy var tableView: UITableView = {
        
-        let tableView: UITableView = UITableView.newAutoLayoutView()
+        let tableView: ComicTableView = ComicTableView.newAutoLayoutView()
+        
+        tableView.emptyView = self.emptyView
         
         return tableView
     }()
