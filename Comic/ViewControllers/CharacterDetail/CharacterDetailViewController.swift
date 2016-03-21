@@ -18,7 +18,7 @@ class CharacterDetailViewController: UIViewController {
         
         let titleViewLabel: UILabel = UILabel(frame: CGRect.init(x: 0.0, y: 0.0, width: 100.0, height: 25.0))
         
-        titleViewLabel.text = "Character Details"
+        titleViewLabel.text = NSLocalizedString("Character Details", comment: "")
         titleViewLabel.textAlignment = .Center
         titleViewLabel.font = UIFont.tradeGothicNo2BoldWithSize(20.0)
         
@@ -27,7 +27,7 @@ class CharacterDetailViewController: UIViewController {
     
     lazy var backButton: UIBarButtonItem = {
         
-        let backButton: UIBarButtonItem = UIBarButtonItem(title: "❮ Back", style: .Plain, target: self, action: "backButtonPressed:")
+        let backButton: UIBarButtonItem = UIBarButtonItem(title: NSLocalizedString("❮ Back", comment: "") , style: .Plain, target: self, action: "backButtonPressed:")
         
         backButton.setTitleTextAttributes([
             NSFontAttributeName : UIFont.tradeGothicLTWithSize(15.0),
@@ -78,7 +78,7 @@ class CharacterDetailViewController: UIViewController {
         
         descriptionLabel.backgroundColor = UIColor.whiteColor()
         descriptionLabel.textAlignment = .Left
-        descriptionLabel.text = "No descripton avalaible"
+        descriptionLabel.text = NSLocalizedString("No descripton avalaible", comment: "")
         descriptionLabel.numberOfLines = 6
         descriptionLabel.font = UIFont.tradeGothicLTWithSize(13.0)
         descriptionLabel.textColor = UIColor.scorpionColor()
@@ -115,13 +115,13 @@ class CharacterDetailViewController: UIViewController {
         totalComicsLabel.textAlignment = .Left
         totalComicsLabel.font = UIFont.tradeGothicLTWithSize(17.0)
         totalComicsLabel.textColor = UIColor.scorpionColor()
-        totalComicsLabel.text = "Total Comics: 0"
+        totalComicsLabel.text = String(format: "%@ %@", NSLocalizedString("Total Comics:", comment: ""), "0")
         
         if let _ = self.character {
             
             if let totalComics = self.character!.totalComics {
 
-                totalComicsLabel.text =  String(format: "Total Comics: %@", self.character!.totalComics!)
+                totalComicsLabel.text =  String(format: "%@ %@", NSLocalizedString("Total Comics:", comment: ""), self.character!.totalComics!)
             }
         }
         
@@ -135,13 +135,13 @@ class CharacterDetailViewController: UIViewController {
         totalSeriesLabel.textAlignment = .Left
         totalSeriesLabel.font = UIFont.tradeGothicLTWithSize(17.0)
         totalSeriesLabel.textColor = UIColor.scorpionColor()
-        totalSeriesLabel.text = "Total Series: 0"
+        totalSeriesLabel.text = String(format: "%@ %@", NSLocalizedString("Total Series:", comment: ""), "0")
         
         if let _ = self.character {
             
             if let totalSeries = self.character!.totalSeries {
                 
-                totalSeriesLabel.text =  String(format: "Total Series: %@", self.character!.totalSeries!)
+                totalSeriesLabel.text =  String(format: "%@ %@", NSLocalizedString("Total Series:", comment: ""), self.character!.totalSeries!)
             }
         }
         
@@ -155,13 +155,13 @@ class CharacterDetailViewController: UIViewController {
         totalStoriesLabel.textAlignment = .Right
         totalStoriesLabel.font = UIFont.tradeGothicLTWithSize(17.0)
         totalStoriesLabel.textColor = UIColor.scorpionColor()
-        totalStoriesLabel.text = "Total Stories: 0"
+        totalStoriesLabel.text = String(format: "%@ %@", NSLocalizedString("Total Stories:", comment: ""), "0")
         
         if let _ = self.character {
             
             if let totalStories = self.character!.totalStories {
                 
-                totalStoriesLabel.text =  String(format: "Total Stories: %@", self.character!.totalStories!)
+                totalStoriesLabel.text =  String(format: "%@ %@", NSLocalizedString("Total Stories:", comment: ""), self.character!.totalStories!)
             }
         }
         
@@ -175,13 +175,13 @@ class CharacterDetailViewController: UIViewController {
         totalEventsLabel.textAlignment = .Right
         totalEventsLabel.font = UIFont.tradeGothicLTWithSize(17.0)
         totalEventsLabel.textColor = UIColor.scorpionColor()
-        totalEventsLabel.text = "Total Events: 0"
+        totalEventsLabel.text = String(format: "%@ %@", NSLocalizedString("Total Events:", comment: ""), "0")
         
         if let _ = self.character {
             
             if let totalEvents = self.character!.totalEvents {
                 
-                totalEventsLabel.text =  String(format: "Total Events: %@", self.character!.totalEvents!)
+                totalEventsLabel.text =  String(format: "%@ %@", NSLocalizedString("Total Events:", comment: ""), self.character!.totalEvents!)
             }
         }
         
@@ -196,7 +196,7 @@ class CharacterDetailViewController: UIViewController {
         wikiButton.titleLabel!.lineBreakMode = .ByWordWrapping
         wikiButton.titleLabel!.font = UIFont.tradeGothicNo2BoldWithSize(20.0)
         wikiButton.titleLabel!.textColor = UIColor.whiteColor()
-        wikiButton.setTitle("MARVEL\nWIKI", forState: .Normal)
+        wikiButton.setTitle(NSLocalizedString("MARVEL\nWIKI", comment: ""), forState: .Normal)
         wikiButton.addTarget(self, action: "wikiButtonPresed:", forControlEvents: .TouchUpInside)
         
         wikiButton.bbc_backgroundColorNormal(UIColor.redRibbonColor(), backgroundColorHighlighted: UIColor.monarchColor())
@@ -212,7 +212,7 @@ class CharacterDetailViewController: UIViewController {
         detailButton.titleLabel!.lineBreakMode = .ByWordWrapping
         detailButton.titleLabel!.font = UIFont.tradeGothicNo2BoldWithSize(20.0)
         detailButton.titleLabel!.textColor = UIColor.whiteColor()
-        detailButton.setTitle("MORE\nINFO", forState: .Normal)
+        detailButton.setTitle(NSLocalizedString("MORE\nINFO", comment: ""), forState: .Normal)
         detailButton.addTarget(self, action: "detailButtonPresed:", forControlEvents: .TouchUpInside)
         
         detailButton.bbc_backgroundColorNormal(UIColor.coniferColor(), backgroundColorHighlighted: UIColor.oliveDrabColor())
@@ -228,7 +228,7 @@ class CharacterDetailViewController: UIViewController {
         comicButton.titleLabel!.lineBreakMode = .ByWordWrapping
         comicButton.titleLabel!.font = UIFont.tradeGothicNo2BoldWithSize(20.0)
         comicButton.titleLabel!.textColor = UIColor.whiteColor()
-        comicButton.setTitle("COMIC\nLINKS", forState: .Normal)
+        comicButton.setTitle(NSLocalizedString("COMIC\nLINKS", comment: ""), forState: .Normal)
         comicButton.addTarget(self, action: "comicButtonPresed:", forControlEvents: .TouchUpInside)
         
         comicButton.bbc_backgroundColorNormal(UIColor.blueLagoonColor(), backgroundColorHighlighted: UIColor.daintreeLagoonColor())

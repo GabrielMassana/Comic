@@ -42,7 +42,7 @@ class CharactersFeedViewController: UIViewController, CharactersFeedAdapterDeleg
        
         let titleViewLabel: UILabel = UILabel(frame: CGRect.init(x: 0.0, y: 0.0, width: 200.0, height: 25.0))
         
-        titleViewLabel.text = "Characters"
+        titleViewLabel.text = NSLocalizedString("Characters", comment: "")
         titleViewLabel.textAlignment = .Center
         titleViewLabel.font = UIFont.tradeGothicNo2BoldWithSize(20.0)
         titleViewLabel.adjustsFontSizeToFitWidth = true
@@ -53,7 +53,7 @@ class CharactersFeedViewController: UIViewController, CharactersFeedAdapterDeleg
     
     lazy var searchButton: UIBarButtonItem = {
         
-        let searchButton: UIBarButtonItem = UIBarButtonItem(title: "Search", style: .Plain, target: self, action: "searchButtonPressed:")
+        let searchButton: UIBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Search", comment: ""), style: .Plain, target: self, action: "searchButtonPressed:")
         
         searchButton.setTitleTextAttributes([
             NSFontAttributeName : UIFont.tradeGothicLTWithSize(15.0),
@@ -75,7 +75,7 @@ class CharactersFeedViewController: UIViewController, CharactersFeedAdapterDeleg
         let attributes = [NSForegroundColorAttributeName: UIColor.scorpionColor(),
             NSFontAttributeName : UIFont.tradeGothicLTWithSize(15.0)]
         
-        searchTextField.attributedPlaceholder = NSAttributedString(string: "Character name", attributes:attributes)
+        searchTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("Character name", comment: ""), attributes:attributes)
         
         return searchTextField
     }()
@@ -228,11 +228,11 @@ class CharactersFeedViewController: UIViewController, CharactersFeedAdapterDeleg
         
         if searchCriteria.characters.count > 0 {
             
-            titleViewLabel.text = String(format: "Name Contains: %@", searchCriteria)
+            titleViewLabel.text = String(format: "%@ %@", NSLocalizedString("Name Contains:", comment: ""), searchCriteria)
         }
         else
         {
-            titleViewLabel.text = "Characters"
+            titleViewLabel.text = NSLocalizedString("Characters", comment: "")
             
         }
     }

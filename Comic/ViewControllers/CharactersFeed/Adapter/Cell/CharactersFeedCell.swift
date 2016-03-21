@@ -33,7 +33,7 @@ class CharactersFeedCell: TableViewCell {
         
         descriptionLabel.backgroundColor = UIColor.whiteColor()
         descriptionLabel.textAlignment = .Left
-        descriptionLabel.text = "No descripton avalaible"
+        descriptionLabel.text = NSLocalizedString("No descripton avalaible", comment: "")
         descriptionLabel.numberOfLines = 5
         descriptionLabel.font = UIFont.tradeGothicLTWithSize(10.0)
         descriptionLabel.textColor = UIColor.scorpionColor()
@@ -149,7 +149,7 @@ class CharactersFeedCell: TableViewCell {
         super.prepareForReuse()
         
         nameLabel.text = nil
-        descriptionLabel.text = "No descripton avalaible"
+        descriptionLabel.text = NSLocalizedString("No descripton avalaible", comment: "")
         characterImageView.image = UIImage(named: "icon-cell-placeholder")
         character = nil
     }
