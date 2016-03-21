@@ -46,7 +46,7 @@ class ComicTableView: UITableView {
         
         if (emptyView != nil) {
             
-            if (((emptyView?.superview) != nil)) {
+            if (((emptyView!.superview) != nil)) {
                 
                 updateEmptyView()
             }
