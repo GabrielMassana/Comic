@@ -18,21 +18,31 @@ class CharactersFeedParser: Parser {
         
         let feed: CharacterFeed = CharacterFeed.fetchCharactersFeed(CDFCoreDataManager.sharedInstance().backgroundManagedObjectContext)
         
-        // TODO security HERE! May crash if no data
-        let data: NSDictionary = serverResponse["data"]! as! NSDictionary
-        let total: NSNumber = data["total"]! as! NSNumber
+        let data: NSDictionary? = serverResponse["data"] as? NSDictionary
         
-        feed.totalCharacters = total
-        
-        let results: NSArray = data["results"]! as! NSArray
-        
-        let parser: CharactersParser = CharactersParser.parser()
-        
-        let characters: NSArray = parser.parseCharacters(results)
-        
-        for character in characters {
+        if let _ = data {
             
-            (character as! Character).feed = feed
+            let total: NSNumber? = data!["total"]! as? NSNumber
+            
+            feed.totalCharacters = total
+            
+            let results: NSArray? = data!["results"] as? NSArray
+            
+            if let _ = results {
+                
+                let parser: CharactersParser = CharactersParser.parser()
+                
+                let characters: NSArray = parser.parseCharacters(results!)
+                
+                for character in characters {
+                    
+                    (character as! Character).feed = feed
+                }
+            }
+        }
+        else
+        {
+            feed.lastServerFailure = NSDate()
         }
         
         return feed

@@ -65,6 +65,25 @@ class CharacterFeed: NSManagedObject {
             hasMoreContentToDownload = true
         }
         
+        // Security check for when the server fails to send back a proper JSON response.
+        // Only re-asking the Marvel API an hour after the failure.
+        if let _: NSDate = lastServerFailure {
+            
+            let dateComponents: NSDateComponents = NSDateComponents()
+            dateComponents.hour = 1
+            
+            let lastServerFailurePlusOneHour: NSDate = NSCalendar.currentCalendar().dateByAddingComponents(dateComponents, toDate: self.lastServerFailure!, options: NSCalendarOptions.WrapComponents)!
+            
+            if (lastServerFailurePlusOneHour.timeIntervalSinceReferenceDate > NSDate().timeIntervalSinceReferenceDate) {
+                
+                hasMoreContentToDownload = false
+            }
+        }
+        else
+        {
+            print(lastServerFailure)
+        }
+
         return hasMoreContentToDownload
     }
 }
