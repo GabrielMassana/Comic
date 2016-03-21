@@ -1,3 +1,5 @@
+[![Build Status](https://img.shields.io/travis/GabrielMassana/Comic/master.svg?style=flat-square)](https://travis-ci.org/GabrielMassana/Comic)
+
 # Comic
 Marvel Comic API
 
