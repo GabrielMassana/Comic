@@ -551,18 +551,10 @@
 		C0F460BF1CA0388E0058D8F3 /* ComicTests */ = {
 			isa = PBXGroup;
 			children = (
-				C0F460C81CA038E40058D8F3 /* Extensions */,
 				C0F460C91CA038E40058D8F3 /* Parsers */,
 				C0F460C21CA0388E0058D8F3 /* Info.plist */,
 			);
 			path = ComicTests;
-			sourceTree = "<group>";
-		};
-		C0F460C81CA038E40058D8F3 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		C0F460C91CA038E40058D8F3 /* Parsers */ = {
