@@ -159,9 +159,12 @@ class CharactersFeedViewController: UIViewController, CharactersFeedAdapterDeleg
         // API call to download Characters
         
         CharactersAPIManager.retrieveCharacters(String(offset),
-            success: { (result) -> Void in
+            success: { [weak self] (result) -> Void in
                 
-                self.paginate()
+                if let strongSelf = self {
+                    
+                    strongSelf.paginate()
+                }
             },
             failure: { (error) -> Void in
         })

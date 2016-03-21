@@ -130,15 +130,18 @@ class CharactersFeedCell: TableViewCell {
             }
         }
         
-        MediaAPIManager.retrieveMediaAsset(MediaAspectRatio.Square, character: character) { (imageCharacter: Character, mediaImage: UIImage?) -> Void in
+        MediaAPIManager.retrieveMediaAsset(MediaAspectRatio.Square, character: character) { [weak self] (imageCharacter: Character, mediaImage: UIImage?) -> Void in
             
-                if self.character!.characterID == imageCharacter.characterID {
+            if let strongSelf = self {
+                
+                if strongSelf.character!.characterID == imageCharacter.characterID {
                     
                     dispatch_async(dispatch_get_main_queue(),{
-
-                        self.characterImageView.image = mediaImage
+                        
+                        strongSelf.characterImageView.image = mediaImage
                     })
                 }
+            }
         }
     }
     

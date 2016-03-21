@@ -54,7 +54,5 @@ class CharactersAPIManager: APIManager {
         }
         
         task.resume()
-        
-        print(characterRequest)
     }
 }
