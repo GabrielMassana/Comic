@@ -19,6 +19,7 @@ class CharactersParserTests: XCTestCase, CDFCoreDataManagerDelegate {
     var parser: CharactersParser?
     
     var characterJSON: NSDictionary?
+    var charactersJSON: NSArray?
     
     var characterID: NSNumber?
     var characterName: String?
@@ -121,6 +122,67 @@ class CharactersParserTests: XCTestCase, CDFCoreDataManagerDelegate {
                 ]
             ]
         ]
+        
+        
+        charactersJSON = [
+            characterJSON!,
+            [
+                "id": 123456,
+                "name": "Some name",
+                "description": "some",
+                "modified": modified!,
+                "thumbnail": [
+                    "path": thumbnailPath!,
+                    "extension": thumbnailExtension!
+                ],
+                "comics": [
+                    "available": totalComics!,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/characters/1011097/comics",
+                    "items": [
+                        
+                    ],
+                    "returned": 10
+                ],
+                "series": [
+                    "available": totalSeries!,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/characters/1011097/series",
+                    "items": [
+                        
+                    ],
+                    "returned": 20
+                ],
+                "stories": [
+                    "available": totalStories!,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/characters/1011097/stories",
+                    "items": [
+                        
+                    ],
+                    "returned": 20
+                ],
+                "events": [
+                    "available": totalEvents!,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/characters/1011097/events",
+                    "items": [
+                        
+                    ],
+                    "returned": 0
+                ],
+                "urls": [
+                    [
+                        "type": "detail",
+                        "url": detailURL!
+                    ],
+                    [
+                        "type": "wiki",
+                        "url": wikiURL!
+                    ],
+                    [
+                        "type": "comiclink",
+                        "url": comicLinkURL!
+                    ]
+                ]
+            ]
+        ]
     }
     
     override func tearDown() {
@@ -130,6 +192,7 @@ class CharactersParserTests: XCTestCase, CDFCoreDataManagerDelegate {
         parser = nil
         
         characterJSON = nil
+        charactersJSON = nil
         
         characterID = nil
         characterName = nil
@@ -274,7 +337,52 @@ class CharactersParserTests: XCTestCase, CDFCoreDataManagerDelegate {
         XCTAssertTrue(character!.modified == dateFormated!, String(format:"modified property was not set properly. Was set to: %@ rather than: %@", character!.modified!, dateFormated!));
     }
     
-    
     // MARK: - CharactersParser
+    
+    func test_parseCharacters_newCharactersArrayReturned() {
+        
+        let characters = parser?.parseCharacters(charactersJSON!)
+        
+        XCTAssertNotNil(characters, "A valid Characters Array object wasn't created");
+    }
+    
+    func test_parseCharacters_count() {
+        
+        let characters = parser?.parseCharacters(charactersJSON!)
+        
+        let arrayCount = NSNumber(integer: characters!.count)
+        let jsonCount = NSNumber(integer: charactersJSON!.count)
 
+        XCTAssertTrue(arrayCount == jsonCount, String(format:"Parsed count is wrong. Should be %@ rather than: %@", arrayCount , jsonCount));
+    }
+    
+    func test_parseCharacters_uniqueObjects() {
+        
+        let characters = parser?.parseCharacters(charactersJSON!)
+        
+        let firstObject = characters?.firstObject as! Comic.Character
+        let lastObject = characters?.lastObject as! Comic.Character
+        
+        XCTAssertNotEqual(firstObject , lastObject, String(format:"Parsed trendingHashtags without different objects: %@ and %@", firstObject , lastObject));
+    }
+    
+    func test_parseCharacters_orderFirstObjects() {
+        
+        let characters = parser?.parseCharacters(charactersJSON!)
+        
+        let firstObjectParsed = characters?.firstObject as! Comic.Character
+        let firstObject = charactersJSON!.firstObject as! NSDictionary
+        
+        XCTAssertEqual(firstObjectParsed.characterID, (firstObject["id"] as! NSNumber).stringValue, String(format:"Should have the same ID: %@", firstObjectParsed.characterID!));
+    }
+    
+    func test_parseCharacters_orderLastObjects() {
+        
+        let characters = parser?.parseCharacters(charactersJSON!)
+        
+        let lastObjectParsed = characters?.lastObject as! Comic.Character
+        let lastObject = charactersJSON!.lastObject as! NSDictionary
+        
+        XCTAssertEqual(lastObjectParsed.characterID, (lastObject["id"] as! NSNumber).stringValue, String(format:"Should have the same ID: %@", lastObjectParsed.characterID!));
+    }
 }
