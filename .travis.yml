@@ -9,4 +9,4 @@ before_install:
    - sudo gem install cocoapods -v '0.39.0'  
 
 script: 
-   xctool -workspace Comic.xcworkspace -scheme Comic build -sdk iphonesimulator
+   xctool -workspace Comic.xcworkspace -scheme Comic test -sdk iphonesimulator
