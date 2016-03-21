@@ -24,7 +24,7 @@ class CharactersFeedEmptyView: UIView {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 8
         paragraphStyle.alignment = .Center
-        var attributedText = NSMutableAttributedString(string: NSLocalizedString("🙈 Wops!\nNothing to be shown here!\nSorry! 😇", comment: ""))
+        var attributedText = NSMutableAttributedString(string: NSLocalizedString("🙈 Wops!\nNothing to show here!\nSorry! 😇", comment: ""))
         attributedText.addAttribute(NSParagraphStyleAttributeName, value:paragraphStyle, range:NSMakeRange(0, attributedText.length))
         
         titleLabel.attributedText = attributedText
