@@ -16,7 +16,7 @@ class CharactersFeedParser: Parser {
     
     func parseFeed(serverResponse: NSDictionary) -> CharacterFeed {
         
-        let feed: CharacterFeed = CharacterFeed.fetchCharactersFeed(CDFCoreDataManager.sharedInstance().backgroundManagedObjectContext)
+        let feed: CharacterFeed = CharacterFeed.fetchCharactersFeed(parserManagedObjectContext!)
         
         let data: NSDictionary? = serverResponse["data"] as? NSDictionary
         
@@ -30,7 +30,7 @@ class CharactersFeedParser: Parser {
             
             if let _ = results {
                 
-                let parser: CharactersParser = CharactersParser.parser()
+                let parser: CharactersParser = CharactersParser.parser(parserManagedObjectContext!)
                 
                 let characters: NSArray = parser.parseCharacters(results!)
                 

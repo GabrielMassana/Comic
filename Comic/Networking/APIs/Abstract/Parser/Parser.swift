@@ -8,20 +8,29 @@
 
 import UIKit
 
+import CoreDataFullStack
+
 /**
  Abstract parser instance with a class function to init it.
  */
 class Parser: NSObject {
 
+    //MARK: - Accessors
+
+    var parserManagedObjectContext: NSManagedObjectContext?
+    
     //MARK: - Init
     
-    required override init() {
+    required init(managedObjectContext: NSManagedObjectContext) {
         
         super.init()
+        
+        parserManagedObjectContext = managedObjectContext
+
     }
     
-    class func parser() -> Self  {
+    class func parser(managedObjectContext: NSManagedObjectContext) -> Self  {
         
-        return self.init()
+        return self.init(managedObjectContext: managedObjectContext)
     }
 }

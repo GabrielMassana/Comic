@@ -43,11 +43,11 @@ class CharactersParser: Parser {
         
         if let _ = characterID {
             
-            character = Character.fetchCharacter(characterID!, managedObjectContext: CDFCoreDataManager.sharedInstance().backgroundManagedObjectContext)
+            character = Character.fetchCharacter(characterID!, managedObjectContext: parserManagedObjectContext!)
          
             if (character == nil)
             {
-                character = CDFInsertService.insertNewObjectForEntityClass(Character.self, inManagedObjectContext: CDFCoreDataManager.sharedInstance().backgroundManagedObjectContext) as? Character
+                character = CDFInsertService.insertNewObjectForEntityClass(Character.self, inManagedObjectContext: parserManagedObjectContext!) as? Character
             
                 character?.characterID = characterID?.stringValue
             }
@@ -80,12 +80,12 @@ class CharactersParser: Parser {
             
             if let _ = stories {
                 
-                character?.totalSeries = stories!["available"] as? NSNumber
+                character?.totalStories = stories!["available"] as? NSNumber
             }
             
             if let _ = events {
                 
-                character?.totalEvents = comics!["available"] as? NSNumber
+                character?.totalEvents = events!["available"] as? NSNumber
             }
             
             character?.detailURL = ""

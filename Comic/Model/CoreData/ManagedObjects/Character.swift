@@ -11,14 +11,14 @@ import Foundation
 import CoreDataFullStack
 
 @objc(Character)
-class Character: NSManagedObject {
+public class Character: NSManagedObject {
 
     class func fetchCharacter(characterID:NSNumber,  managedObjectContext: NSManagedObjectContext) -> Character? {
         
         let predicate: NSPredicate = NSPredicate(format: "characterID == %@", characterID)
         
-        let feed: Character? = CDFRetrievalService.retrieveFirstEntryForEntityClass(Character.self, predicate: predicate, managedObjectContext: CDFCoreDataManager.sharedInstance().backgroundManagedObjectContext) as? Character
+        let character: Character? = CDFRetrievalService.retrieveFirstEntryForEntityClass(Character.self, predicate: predicate, managedObjectContext: managedObjectContext) as? Character
         
-        return feed
+        return character
     }
 }

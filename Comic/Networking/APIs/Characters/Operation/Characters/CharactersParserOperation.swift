@@ -41,7 +41,7 @@ class CharactersParserOperation: COMOperation {
         
         CDFCoreDataManager.sharedInstance().backgroundManagedObjectContext.performBlockAndWait { () -> Void in
             
-            let feedParser: CharactersFeedParser = CharactersFeedParser.parser()
+            let feedParser: CharactersFeedParser = CharactersFeedParser.parser(CDFCoreDataManager.sharedInstance().backgroundManagedObjectContext)
             
             if let response = self.charactersResponse {
                 

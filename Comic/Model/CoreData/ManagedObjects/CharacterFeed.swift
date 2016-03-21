@@ -21,7 +21,7 @@ class CharacterFeed: NSManagedObject {
         
         let predicate: NSPredicate = NSPredicate(format: "feedID MATCHES %@", feedID)
         
-        let feed: CharacterFeed? = CDFRetrievalService.retrieveFirstEntryForEntityClass(CharacterFeed.self, predicate: predicate, managedObjectContext: CDFCoreDataManager.sharedInstance().backgroundManagedObjectContext) as? CharacterFeed
+        let feed: CharacterFeed? = CDFRetrievalService.retrieveFirstEntryForEntityClass(CharacterFeed.self, predicate: predicate, managedObjectContext: managedObjectContext) as? CharacterFeed
 
         do {
             
@@ -37,7 +37,7 @@ class CharacterFeed: NSManagedObject {
     
     class func fetchCharactersFeed(managedObjectContext: NSManagedObjectContext) -> CharacterFeed {
         
-        var feed: CharacterFeed? = CharacterFeed.fetchCharactersFeed(CharactersFeedID, managedObjectContext: CDFCoreDataManager.sharedInstance().backgroundManagedObjectContext)
+        var feed: CharacterFeed? = CharacterFeed.fetchCharactersFeed(CharactersFeedID, managedObjectContext: managedObjectContext)
         
         if let aFeed: CharacterFeed = feed {
             
@@ -45,7 +45,7 @@ class CharacterFeed: NSManagedObject {
         }
         else
         {
-            feed = CDFInsertService.insertNewObjectForEntityClass(CharacterFeed.self, inManagedObjectContext: CDFCoreDataManager.sharedInstance().backgroundManagedObjectContext) as? CharacterFeed
+            feed = CDFInsertService.insertNewObjectForEntityClass(CharacterFeed.self, inManagedObjectContext: managedObjectContext) as? CharacterFeed
             
             feed!.feedID = CharactersFeedID
             
