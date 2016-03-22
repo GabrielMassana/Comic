@@ -58,7 +58,7 @@ I used four of [my own pods in Cocoapods](https://cocoapods.org/owners/10374).
 
 ### The app meets all the requirements 
 
-###### Requirements
+#### Requirements
 
 - Create an iOS application that communicates with the Public Marvel API and meets the following requirements:
   - As a user I want to see a list/collection of items from the Marvel API 
@@ -70,7 +70,7 @@ I used four of [my own pods in Cocoapods](https://cocoapods.org/owners/10374).
 
 ### The app also meets some of the extra requirements
 
-###### ponus Points
+#### Bonus Points
 
 - Performance
 - Unit Tests
