@@ -28,6 +28,12 @@ class Request: CNMRequest {
     
     //MARK: - UpdateRequest
     
+    /**
+    Updates the reqequest object with a given data.
+    
+    - parameter endpoint: specific endpoint for this request.
+    - parameter offset: the offset of data to be ask for.
+    */
     func updateRequestWithEndpoint(endpoint: String, offset: String) {
         
     }

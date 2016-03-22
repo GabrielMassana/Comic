@@ -15,6 +15,9 @@ class CharactersParserOperation: COMOperation {
 
     //MARK: - Accessors
 
+    /**
+    The characters response from Marvel API to be parsed.
+    */
     var charactersResponse: NSDictionary?
     
     //MARK: - Init

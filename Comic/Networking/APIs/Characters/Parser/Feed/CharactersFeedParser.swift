@@ -14,6 +14,13 @@ class CharactersFeedParser: Parser {
 
     //MARK: - ParseFeed
     
+    /**
+    Parse a feed response from the Marvel API.
+    
+    - parameter serverResponse: a feed response from the Marvel API
+    
+    - returns: A CharacterFeed objects parsed.
+    */
     func parseFeed(serverResponse: NSDictionary) -> CharacterFeed {
         
         let feed: CharacterFeed = CharacterFeed.fetchCharactersFeed(parserManagedObjectContext!)

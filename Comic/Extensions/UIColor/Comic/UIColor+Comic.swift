@@ -10,6 +10,9 @@
 
 import UIKit
 
+/**
+ Accessors for all the colors used.
+ */
 extension UIColor {
     
     class func altoColor() -> UIColor {

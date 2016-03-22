@@ -14,6 +14,9 @@ class CharactersFeedCell: TableViewCell {
 
     var character: Character?
     
+    /**
+     Label with the Character name.
+     */
     private var nameLabel: UILabel = {
         
         let nameLabel: UILabel = UILabel.newAutoLayoutView()
@@ -27,6 +30,9 @@ class CharactersFeedCell: TableViewCell {
         return nameLabel
     }()
     
+    /**
+     Label with the Character description.
+     */
     private var descriptionLabel: UILabel = {
         
         let descriptionLabel: UILabel = UILabel.newAutoLayoutView()
@@ -41,6 +47,9 @@ class CharactersFeedCell: TableViewCell {
         return descriptionLabel
     }()
     
+    /**
+     Image View with the character image.
+     */
     var characterImageView: UIImageView = {
         
         let characterImageView: UIImageView = UIImageView.newAutoLayoutView()
@@ -52,6 +61,9 @@ class CharactersFeedCell: TableViewCell {
         return characterImageView
     }()
     
+    /**
+     Separation line between cells.
+     */
     private var separationLine: UIView = {
     
         let separationLine = UIView.newAutoLayoutView()
@@ -116,6 +128,11 @@ class CharactersFeedCell: TableViewCell {
     
     //MARK: - Configure
     
+    /**
+    Configures the cell with a given Character object.
+    
+    - parameter character: the character to be shown in the cell.
+    */
     func configureWithCharacter(character: Character) {
         
         self.character = character

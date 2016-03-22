@@ -27,6 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CDFCoreDataManagerDelegat
         return window
     }()
 
+    /**
+     The Navigation Controller working as rootViewController.
+     */
     var rootNavigationController: RootNavigationController = RootNavigationController()
     
      //MARK: - UIApplicationDelegate
@@ -69,6 +72,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CDFCoreDataManagerDelegat
     
     //MARK: - OperationQueues
     
+    /**
+        Registers the operations queues in the app.
+    */
     func registerOperationQueues() {
         
         let networkDataOperationQueue:NSOperationQueue = NSOperationQueue()

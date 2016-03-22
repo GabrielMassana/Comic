@@ -18,6 +18,13 @@ enum MediaAspectRatio: String {
 
 class MediaAPIManager: NSObject {
 
+    /**
+     Retrieves a media asset from Marvel service.
+     
+     - parameter mediaAspectRatio: desired Media Aspect Ratio for the media asset to be downloaded.
+     - parameter character: Character object with the information to retrieve the media asset.
+     - parameter completion: completion callback returning media asset and Character object.     
+     */
     class func retrieveMediaAsset(mediaAspectRatio: MediaAspectRatio, character: Character, completion:((imageCharacter: Character, mediaImage: UIImage?) -> Void)?) {
     
         let documentsDirectory: String = NSFileManager.cfm_documentsDirectoryPath()

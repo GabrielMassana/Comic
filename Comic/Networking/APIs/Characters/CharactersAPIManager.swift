@@ -15,6 +15,13 @@ class CharactersAPIManager: APIManager {
 
     //MARK: - RetrieveCharacters
 
+    /**
+    Retrieve characters data from Marvel API.
+    
+    - parameter offset: the offset of data to be ask for.
+    - parameter success: success callback to be called if the operation succed.
+    - parameter failure: failure callback to be called if the operation fails.
+    */
     class func retrieveCharacters(offset: String, success: NetworkingOnSuccess, failure: NetworkingOnFailure) {
         
         // Offset from Core Data

@@ -14,6 +14,11 @@ class CharacterRequest: Request {
 
     //MARK: - Init
 
+    /**
+    Instanciate a new request with a given offset.
+    
+    - parameter offset: the offset of data to be ask for.
+    */
     class func requestWithOffset(offset: Int)  -> Self {
         
         let characterRequest = self.requestForAPI()

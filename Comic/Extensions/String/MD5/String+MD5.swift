@@ -13,7 +13,12 @@ import Foundation
 extension String {
     
     //MARK: - Encrypt
-
+    
+    /**
+    md5 diges the self string
+    
+    - returns: the md5 string 
+    */
     func md5() -> String! {
         
         let str = self.cStringUsingEncoding(NSUTF8StringEncoding)

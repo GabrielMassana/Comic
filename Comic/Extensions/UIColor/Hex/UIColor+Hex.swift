@@ -10,6 +10,13 @@ import UIKit
 
 extension UIColor {
     
+    /**
+     Creates UIColor object based on given hexadecimal color value (rrggbb).
+     
+     - parameter hex: String with the hex information.
+     
+     - returns: A UIColor from the given String.
+    */
     class func colorWithHex(hex: String) -> UIColor? {
         
         let red: CGFloat
@@ -22,7 +29,7 @@ extension UIColor {
         
         let start = noHash.startIndex
         let hexColor = noHash.substringFromIndex(start)
-
+        
         if hexColor.characters.count == 6 {
             
             let scanner = NSScanner(string: hexColor)
@@ -41,6 +48,13 @@ extension UIColor {
         return color
     }
     
+    /**
+     Creates UIColor object based on given hexadecimal color value (rrggbbaa).
+     
+     - parameter hex: String with the hex information.
+     
+     - returns: A UIColor from the given String.
+    */
     class func colorWithHexAlpha(hex: String) -> UIColor? {
         
         let red: CGFloat

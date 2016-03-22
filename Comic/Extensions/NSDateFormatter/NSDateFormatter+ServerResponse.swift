@@ -14,6 +14,11 @@ extension NSDateFormatter {
     
     //MARK: - ServerResponse
     
+    /**
+    Date Formatter to parse date strings returned from Marvel JSON.
+    
+    - returns: NSDateFormatter instance.
+    */
     class func serverDateFormatter() -> NSDateFormatter! {
         
         if (NSThread.currentThread().threadDictionary["DateFormatterKey"] == nil) {

@@ -15,6 +15,13 @@ class APIManager: NSObject {
 
     //MARK: - Accessors
 
+    /**
+    Callback called when the operation fails.
+    */
     var onFailure: NetworkingOnFailure?
+    
+    /**
+     Callback called when the operation completes succesfully.
+    */
     var onSuccess: NetworkingOnSuccess?    
 }

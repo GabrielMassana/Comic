@@ -14,6 +14,13 @@ class CharactersParser: Parser {
 
     //MARK: - ParseCharacters
 
+    /**
+    Parse a characters response from the Marvel API.
+    
+    - parameter charactersResponse: a characters response from the Marvel API
+    
+    - returns: An array with Character objects parsed.
+    */
     func parseCharacters(charactersResponse: NSArray) -> NSArray {
         
         let charactersArray: NSMutableArray = NSMutableArray(capacity: charactersResponse.count)
@@ -35,6 +42,13 @@ class CharactersParser: Parser {
     
     //MARK: - ParseCharacter
 
+    /**
+    Parse an character response from the Marvel API.
+
+    - parameter characterResponse: a character response from the Marvel API
+
+    - returns: A Character object parsed.
+    */
     func parseCharacter(characterResponse: NSDictionary) -> Character? {
         
         let characterID: NSNumber? = characterResponse["id"] as? NSNumber

@@ -12,6 +12,9 @@ class CharactersFeedEmptyView: UIView {
 
     //MARK: - Accessors
     
+    /**
+     Title Label with the empty view information.
+     */
     var titleLabel: UILabel = {
        
         let titleLabel: UILabel = UILabel.newAutoLayoutView()

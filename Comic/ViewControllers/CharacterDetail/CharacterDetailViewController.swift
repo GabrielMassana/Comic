@@ -14,6 +14,9 @@ class CharacterDetailViewController: UIViewController {
     
     var character: Character?
     
+    /**
+     NavigationItem titleView view.
+     */
     lazy var titleViewLabel: UILabel = {
         
         let titleViewLabel: UILabel = UILabel(frame: CGRect.init(x: 0.0, y: 0.0, width: 100.0, height: 25.0))
@@ -25,6 +28,9 @@ class CharacterDetailViewController: UIViewController {
         return titleViewLabel
     }()
     
+    /**
+     Back button item to be placed on the NavigationItem.
+     */
     lazy var backButton: UIBarButtonItem = {
         
         let backButton: UIBarButtonItem = UIBarButtonItem(title: NSLocalizedString("❮ Back", comment: "") , style: .Plain, target: self, action: "backButtonPressed:")
@@ -37,6 +43,9 @@ class CharacterDetailViewController: UIViewController {
         return backButton
     }()
     
+    /**
+     Image View with the character image.
+     */
     lazy var characterImageView: UIImageView = {
         
         let characterImageView: UIImageView = UIImageView.newAutoLayoutView()
@@ -54,6 +63,9 @@ class CharacterDetailViewController: UIViewController {
         return characterImageView
     }()
     
+    /**
+     Label with the Character name.
+     */
     lazy var nameLabel: UILabel = {
         
         let nameLabel: UILabel = UILabel.newAutoLayoutView()
@@ -72,6 +84,9 @@ class CharacterDetailViewController: UIViewController {
         return nameLabel
     }()
     
+    /**
+     Label with the Character description.
+     */
     lazy var descriptionLabel: UILabel = {
         
         let descriptionLabel: UILabel = UILabel.newAutoLayoutView()
@@ -99,6 +114,9 @@ class CharacterDetailViewController: UIViewController {
         return descriptionLabel
     }()
     
+    /**
+     Separation line between data.
+     */
     private var separationLine: UIView = {
         
         let separationLine = UIView.newAutoLayoutView()
@@ -108,6 +126,9 @@ class CharacterDetailViewController: UIViewController {
         return separationLine
     }()
     
+    /**
+     Label with the Character total comics data.
+     */
     lazy var totalComicsLabel: UILabel = {
         
         let totalComicsLabel: UILabel = UILabel.newAutoLayoutView()
@@ -128,6 +149,9 @@ class CharacterDetailViewController: UIViewController {
         return totalComicsLabel
     }()
     
+    /**
+     Label with the Character total series data.
+     */
     lazy var totalSeriesLabel: UILabel = {
         
         let totalSeriesLabel: UILabel = UILabel.newAutoLayoutView()
@@ -148,6 +172,9 @@ class CharacterDetailViewController: UIViewController {
         return totalSeriesLabel
     }()
     
+    /**
+     Label with the Character total stories data.
+     */
     lazy var totalStoriesLabel: UILabel = {
         
         let totalStoriesLabel: UILabel = UILabel.newAutoLayoutView()
@@ -168,6 +195,9 @@ class CharacterDetailViewController: UIViewController {
         return totalStoriesLabel
     }()
     
+    /**
+     Label with the Character total events data.
+     */
     lazy var totalEventsLabel: UILabel = {
         
         let totalEventsLabel: UILabel = UILabel.newAutoLayoutView()
@@ -188,6 +218,9 @@ class CharacterDetailViewController: UIViewController {
         return totalEventsLabel
     }()
     
+    /**
+     Button with the Character wiki link.
+     */
     lazy var wikiButton: UIButton = {
         
         let wikiButton: UIButton = UIButton.newAutoLayoutView()
@@ -204,6 +237,9 @@ class CharacterDetailViewController: UIViewController {
         return wikiButton
     }()
     
+    /**
+     Button with the Character details link.
+     */
     lazy var detailButton: UIButton = {
         
         let detailButton: UIButton = UIButton.newAutoLayoutView()
@@ -220,6 +256,9 @@ class CharacterDetailViewController: UIViewController {
         return detailButton
     }()
     
+    /**
+     Button with the Character comic link.
+     */
     lazy var comicButton: UIButton = {
         
         let comicButton: UIButton = UIButton.newAutoLayoutView()
@@ -366,6 +405,9 @@ class CharacterDetailViewController: UIViewController {
     
     //MARK: - ButtonVisibility
     
+    /**
+     Function to handle link buttons visibility and interaction.
+     */
     func handleButtonVisibility() {
         
         if let _ = self.character {
@@ -401,11 +443,21 @@ class CharacterDetailViewController: UIViewController {
     
     //MARK: - ButtonActions
     
+    /**
+     Back Button Action.
+    
+     - parameter sender: UIButton triggering the action.
+     */
     func backButtonPressed(sender: UIBarButtonItem) {
         
         self.navigationController?.popViewControllerAnimated(true)
     }
     
+    /**
+     Wiki Button Action. Action opens Safari navigator.
+     
+     - parameter sender: UIButton triggering the action.
+     */
     func wikiButtonPresed(sender: UIBarButtonItem) {
         
         if let _ = self.character {
@@ -420,6 +472,11 @@ class CharacterDetailViewController: UIViewController {
         }
     }
 
+    /**
+     Detail Button Action. Action opens Safari navigator.
+     
+     - parameter sender: UIButton triggering the action.
+     */
     func detailButtonPresed(sender: UIBarButtonItem) {
         
         if let _ = self.character {
@@ -434,6 +491,11 @@ class CharacterDetailViewController: UIViewController {
         }
     }
     
+    /**
+     ComicLink Button Action. Action opens Safari navigator.
+     
+     - parameter sender: UIButton triggering the action.
+     */
     func comicButtonPresed(sender: UIBarButtonItem) {
         
         if let _ = self.character {

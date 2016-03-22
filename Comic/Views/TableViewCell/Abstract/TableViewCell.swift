@@ -12,6 +12,9 @@ class TableViewCell: UITableViewCell {
 
     //MARK: - Identifier
     
+    /**
+     Help class function to return the cell reuseIdentifier.
+     */
     class func reuseIdentifier() -> String {
         
         return NSStringFromClass(self.self)
@@ -19,6 +22,9 @@ class TableViewCell: UITableViewCell {
     
     //MARK: - Layout
     
+    /**  
+     help function to call auto-layout methods.
+     */
     func layoutByApplyingConstraints() {
         
         self.setNeedsUpdateConstraints()

@@ -8,6 +8,9 @@
 
 import UIKit
 
+/**
+ Table view with the functionality to show or hide an empty view.
+ */
 class ComicTableView: UITableView {
 
     //MARK: - Accessors
@@ -66,6 +69,9 @@ class ComicTableView: UITableView {
     
     //MARK - UpdateEmptyView
 
+    /**
+     Updates the visibility of the empty view depending on the table view data.
+     */
     func updateEmptyView() {
         
         if (emptyView != nil) {
@@ -97,6 +103,9 @@ class ComicTableView: UITableView {
     
     //MARK - HasData
 
+    /**
+     Checks if the table view has data or not.
+     */
     func hasData() -> Bool {
         
         var hasData = false

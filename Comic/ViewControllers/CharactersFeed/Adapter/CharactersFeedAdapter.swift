@@ -21,10 +21,19 @@ class CharactersFeedAdapter: NSObject, UITableViewDelegate, UITableViewDataSourc
 
     //MARK: - Accessors
 
+    /**
+     Delegate object
+     */
     weak var delegate: CharactersFeedAdapterDelegate?
 
+    /**
+     Search criteria to update the table view.
+     */
     var searchCriteria: String = ""
     
+    /**
+     Table view to display data.
+     */
     var tableView: UITableView! {
         
         willSet (newValue) {
@@ -54,6 +63,9 @@ class CharactersFeedAdapter: NSObject, UITableViewDelegate, UITableViewDataSourc
         }
     }
     
+    /**
+     Used to connect the TableView with Core Data.
+     */
     lazy var fetchedResultsController: CDFTableViewFetchedResultsController =  {
         
         let fetchedResultsController = CDFTableViewFetchedResultsController(fetchRequest: self.fetchRequest, managedObjectContext: CDFCoreDataManager.sharedInstance().managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
@@ -63,6 +75,9 @@ class CharactersFeedAdapter: NSObject, UITableViewDelegate, UITableViewDataSourc
         return fetchedResultsController
     }()
     
+    /**
+     Fetch request for retrieving characters.
+     */
     var fetchRequest: NSFetchRequest {
         
         let fetchRequest = NSFetchRequest()
@@ -73,6 +88,9 @@ class CharactersFeedAdapter: NSObject, UITableViewDelegate, UITableViewDataSourc
         return fetchRequest
     }
     
+    /**
+     Sort Descriptors to sort how characters should be ordered.
+     */
     lazy var sortDescriptors: Array<NSSortDescriptor> = {
         
         let sortDescriptors:NSSortDescriptor = NSSortDescriptor(key: "name", ascending: true)
@@ -82,6 +100,11 @@ class CharactersFeedAdapter: NSObject, UITableViewDelegate, UITableViewDataSourc
     
     //MARK: - SearchTextField
 
+    /**
+     Updates fetchedResultsController object with a given search criteria
+    
+     - parameter searchCriteria: search criteria to filter the data.
+     */
     func filterTableViewWithSearchCriteria(searchCriteria: String) {
         
         if self.searchCriteria.lowercaseString != searchCriteria.lowercaseString {
@@ -115,6 +138,9 @@ class CharactersFeedAdapter: NSObject, UITableViewDelegate, UITableViewDataSourc
     
     //MARK: - RegisterCells
     
+    /**
+     Register the cells to be used in the table view.
+     */
     func registerCells() {
         
         tableView.registerClass(CharactersFeedCell.self, forCellReuseIdentifier: CharactersFeedCell.reuseIdentifier())
@@ -122,6 +148,12 @@ class CharactersFeedAdapter: NSObject, UITableViewDelegate, UITableViewDataSourc
     
     //MARK: - ConfigureCell
     
+    /**
+     Configure the cell.
+    
+     - parameter cell: cell to be configured.
+     - parameter indexPath: cell indexPath.
+     */
     func configureCell(cell:UITableViewCell, indexPath: NSIndexPath) {
         
         let character: Character = fetchedResultsController.fetchedObjects![indexPath.row] as! Character

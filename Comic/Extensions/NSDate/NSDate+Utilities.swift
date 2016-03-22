@@ -10,6 +10,11 @@ import Foundation
 
 extension NSDate {
     
+    /**
+     Calculate if the date is one hour or more ago from now.
+     
+     - returns: True if the date is one hour or more ago. False otherwise
+     */
     func isDateOneHourOrMoreAgo() -> Bool {
     
         var isDateOneHourOrMoreAgo = false

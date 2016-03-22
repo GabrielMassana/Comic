@@ -12,6 +12,9 @@ class SearchTextField: UITextField {
     
     //MARK: - Accessors
 
+    /**
+    Separation line at the bottom of the text field.
+    */
     private var separationLine: UIView = {
         
         let separationLine = UIView.newAutoLayoutView()

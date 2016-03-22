@@ -8,6 +8,9 @@
 
 import UIKit
 
+/**
+ Accessors for all the fonts used.
+ */
 extension UIFont {
     
     class func tradeGothicLightWithSize(size: CGFloat) -> UIFont {

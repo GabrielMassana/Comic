@@ -17,6 +17,14 @@ class CharacterFeed: NSManagedObject {
 
     //MARK: - Fetch
 
+    /**
+    Retrieves characterFeed from DB based with ID provided.
+    
+    - parameter feedID: ID of characterFeed to be retrieved.
+    - parameter managedObjectContext: context that should be used to access persistent store.
+    
+    - returns: CharacterFeed instance or nil if character can't be found.
+    */
     private class func fetchCharactersFeed(feedID:String,  managedObjectContext: NSManagedObjectContext) -> CharacterFeed? {
         
         let predicate: NSPredicate = NSPredicate(format: "feedID MATCHES %@", feedID)
@@ -35,6 +43,13 @@ class CharacterFeed: NSManagedObject {
         return feed
     }
     
+    /**
+     Fetches or create a characterFeed.
+     
+     - parameter managedObjectContext: context that should be used to access persistent store.
+     
+     - returns: CharacterFeed instance.
+     */
     class func fetchCharactersFeed(managedObjectContext: NSManagedObjectContext) -> CharacterFeed {
         
         var feed: CharacterFeed? = CharacterFeed.fetchCharactersFeed(CharactersFeedID, managedObjectContext: managedObjectContext)
@@ -55,6 +70,11 @@ class CharacterFeed: NSManagedObject {
     
     //MARK: - MoreContent
 
+    /**
+    Asks the feed if there are more content to download based on stored parameters
+    
+    - returns: True if there are more content to download. False otherwise
+    */
     func hasMoreContentToDownload() -> Bool {
         
         var hasMoreContentToDownload: Bool = false

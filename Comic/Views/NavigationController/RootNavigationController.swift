@@ -12,6 +12,9 @@ class RootNavigationController: UINavigationController {
 
     //MARK: - Accessors
 
+    /**
+     CharactersFeedViewController object to be used as rootViewController of the UINavigationController.
+     */
     var rootViewController: CharactersFeedViewController = {
         
         let charactersFeed: CharactersFeedViewController = CharactersFeedViewController()

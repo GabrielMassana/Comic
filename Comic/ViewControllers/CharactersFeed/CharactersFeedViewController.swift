@@ -18,10 +18,19 @@ class CharactersFeedViewController: UIViewController, CharactersFeedAdapterDeleg
 
     //MARK: - Accessors
 
+    /**
+    Stores a bit to know if the Search bar is visible or not.
+    */
     var isSearchBarVisible: Bool = false
     
+    /**
+     CharacterDetailViewController optional instance.
+     */
     var characterDetail: CharacterDetailViewController?
     
+    /**
+     Empty View to be shown when no data in the Table View.
+     */
     lazy var emptyView: CharactersFeedEmptyView = {
         
         let emptyView: CharactersFeedEmptyView = CharactersFeedEmptyView(frame: CGRect.init(x: 0.0, y: 0.0, width: CGRectGetWidth(UIScreen.mainScreen().bounds), height: CGRectGetHeight(UIScreen.mainScreen().bounds) - NavigationBarHeight))
@@ -29,6 +38,9 @@ class CharactersFeedViewController: UIViewController, CharactersFeedAdapterDeleg
         return emptyView
     }()
     
+    /**
+     Table view to display data.
+     */
     lazy var tableView: UITableView = {
        
         let tableView: ComicTableView = ComicTableView.newAutoLayoutView()
@@ -38,6 +50,9 @@ class CharactersFeedViewController: UIViewController, CharactersFeedAdapterDeleg
         return tableView
     }()
     
+    /**
+     Adapter to  manage the common logic of the tableView.
+     */
     lazy var adapter: CharactersFeedAdapter = {
         
         let adapter = CharactersFeedAdapter()
@@ -47,6 +62,9 @@ class CharactersFeedViewController: UIViewController, CharactersFeedAdapterDeleg
         return adapter
     }()
     
+    /**
+     NavigationItem titleView view.
+     */
     var titleViewLabel: UILabel = {
        
         let titleViewLabel: UILabel = UILabel(frame: CGRect.init(x: 0.0, y: 0.0, width: 200.0, height: 25.0))
@@ -60,6 +78,9 @@ class CharactersFeedViewController: UIViewController, CharactersFeedAdapterDeleg
         return titleViewLabel
     }()
     
+    /**
+     Search button item to be placed on the NavigationItem.
+     */
     lazy var searchButton: UIBarButtonItem = {
         
         let searchButton: UIBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Search", comment: ""), style: .Plain, target: self, action: "searchButtonPressed:")
@@ -72,6 +93,9 @@ class CharactersFeedViewController: UIViewController, CharactersFeedAdapterDeleg
         return searchButton
     }()
     
+    /**
+     Text Field acting as search bar to filter the data in the table view.
+     */
     lazy var searchTextField: SearchTextField = {
         
         let searchTextField: SearchTextField = SearchTextField.newAutoLayoutView()
@@ -89,6 +113,9 @@ class CharactersFeedViewController: UIViewController, CharactersFeedAdapterDeleg
         return searchTextField
     }()
     
+    /**
+     Constraint to update the searchTextField position.
+     */
     var searchTextFieldTopConstraint: NSLayoutConstraint?
     
     //MARK: - ViewLifeCycle
@@ -147,6 +174,11 @@ class CharactersFeedViewController: UIViewController, CharactersFeedAdapterDeleg
     
     //MARK: - ButtonActions
 
+    /**
+    Search Button Action.
+    
+    - parameter sender: UIButton triggering the action.
+    */
     func searchButtonPressed(sender: UIBarButtonItem) {
         
         updateSearchTextFieldVisibility(true, duration: 0.3)
@@ -154,6 +186,11 @@ class CharactersFeedViewController: UIViewController, CharactersFeedAdapterDeleg
     
     //MARK: - RetrieveData
 
+    /**
+    Triggers the actions to download and parse characters data from the APi with an offset
+    
+    - parameter offset: the offset of data to be ask for.
+    */
     private func downloadDataFromMarvelAPI(offset: Int) {
         
         // API call to download Characters
@@ -170,6 +207,9 @@ class CharactersFeedViewController: UIViewController, CharactersFeedAdapterDeleg
         })
     }
     
+    /**
+     Calls for a next page of data from the Marvel API if there are more content to be downloaded.
+     */
     private func paginate() {
         
          CDFCoreDataManager.sharedInstance().backgroundManagedObjectContext.performBlockAndWait { () -> Void in
@@ -185,6 +225,12 @@ class CharactersFeedViewController: UIViewController, CharactersFeedAdapterDeleg
     
     //MARK: - SearchTextField
     
+    /**
+     Updates searchTextField object visibility with an animation.
+    
+     - parameter visible: True if should be visible. False otherwise.
+     - parameter duration: the duration of the animation
+     */
     func updateSearchTextFieldVisibility(visible: Bool, duration: NSTimeInterval) {
         
         var top: CGFloat = NavigationBarHeight
@@ -231,11 +277,21 @@ class CharactersFeedViewController: UIViewController, CharactersFeedAdapterDeleg
         }
     }
     
+    /**
+     Calls the adapter to filter the table view with a given search criteria String.
+     
+     - parameter searchCriteria: search criteria to filter the data.
+     */
     func filterTableViewWithSearchCriteria(searchCriteria: String) {
         
         adapter.filterTableViewWithSearchCriteria(searchCriteria)
     }
     
+    /**
+     Updates titleViewLabel object with a given search criteria String.
+     
+     - parameter searchCriteria: search criteria to filter the data.
+     */
     func updateTitleViewLabel(searchCriteria: String) {
         
         if searchCriteria.characters.count > 0 {
@@ -245,7 +301,6 @@ class CharactersFeedViewController: UIViewController, CharactersFeedAdapterDeleg
         else
         {
             titleViewLabel.text = NSLocalizedString("Characters", comment: "")
-            
         }
     }
     
