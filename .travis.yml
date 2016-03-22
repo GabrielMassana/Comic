@@ -1,8 +1,6 @@
 language: objective-c
    
 osx_image: xcode7.2
-xcode_workspace: Comic.xcworkspace
-xcode_scheme: Comic
 
 before_install:
    - rvm use system
