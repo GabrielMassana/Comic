@@ -12,9 +12,12 @@ import CoreDataFullStack
 
 protocol CharactersFeedAdapterDelegate: class {
     
+    /**
+     Callback for when the user selects one character.
+     
+     - parameter character: the selected character object.
+     */
     func didSelectCharacter(character: Character)
-    
-    func scrollViewDidScroll()
 }
 
 class CharactersFeedAdapter: NSObject, UITableViewDelegate, UITableViewDataSource {
@@ -170,11 +173,6 @@ class CharactersFeedAdapter: NSObject, UITableViewDelegate, UITableViewDataSourc
         let character: Character = fetchedResultsController.fetchedObjects![indexPath.row] as! Character
 
         self.delegate?.didSelectCharacter(character)
-    }
-    
-    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
-    
-        self.delegate?.scrollViewDidScroll()
     }
     
     //MARK: - UITableViewDataSource

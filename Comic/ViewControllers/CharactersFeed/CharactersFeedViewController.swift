@@ -104,6 +104,7 @@ class CharactersFeedViewController: UIViewController, CharactersFeedAdapterDeleg
         searchTextField.delegate = self
         searchTextField.returnKeyType = .Search
         searchTextField.tintColor = UIColor.blackColor()
+        searchTextField.backgroundColor = UIColor.whiteColor()
         
         let attributes = [NSForegroundColorAttributeName: UIColor.scorpionColor(),
             NSFontAttributeName : UIFont.tradeGothicLTWithSize(15.0)]
@@ -181,7 +182,14 @@ class CharactersFeedViewController: UIViewController, CharactersFeedAdapterDeleg
     */
     func searchButtonPressed(sender: UIBarButtonItem) {
         
-        updateSearchTextFieldVisibility(true, duration: 0.3)
+        if isSearchBarVisible {
+            
+            updateSearchTextFieldVisibility(false, duration: 0.3)
+        }
+        else
+        {
+            updateSearchTextFieldVisibility(true, duration: 0.3)
+        }
     }
     
     //MARK: - RetrieveData
@@ -234,20 +242,17 @@ class CharactersFeedViewController: UIViewController, CharactersFeedAdapterDeleg
     func updateSearchTextFieldVisibility(visible: Bool, duration: NSTimeInterval) {
         
         var top: CGFloat = NavigationBarHeight
-        var y: CGFloat = -NavigationBarHeight
+        var y: CGFloat = 0.0
         
         if visible {
             
             top = NavigationBarHeight + SearchBarHeight
-            y = -(NavigationBarHeight + SearchBarHeight)
+            y = -(NavigationBarHeight)
             
             searchTextField.becomeFirstResponder()
             view.layoutIfNeeded()
             
             searchTextFieldTopConstraint?.constant = NavigationBarHeight
-            
-            self.tableView.contentInset = UIEdgeInsets.init(top: top, left: 0.0, bottom: 0.0, right: 0.0)
-            self.tableView.contentOffset = CGPoint.init(x: 0.0, y: y)
         }
         else
         {
@@ -260,7 +265,7 @@ class CharactersFeedViewController: UIViewController, CharactersFeedAdapterDeleg
         UIView.animateWithDuration(duration, animations: { () -> Void in
             
             self.tableView.contentInset = UIEdgeInsets.init(top: top, left: 0.0, bottom: 0.0, right: 0.0)
-            self.tableView.contentOffset = CGPoint.init(x: 0.0, y: y)
+            self.tableView.contentOffset = CGPoint.init(x: 0.0, y: self.tableView.contentOffset.y + y)
             
             self.view.layoutIfNeeded()
             })
@@ -316,8 +321,6 @@ class CharactersFeedViewController: UIViewController, CharactersFeedAdapterDeleg
             updateTitleViewLabel(textField.text!)
         }
         
-        textField.text? = ""
-        
         return true
     }
     
@@ -329,13 +332,4 @@ class CharactersFeedViewController: UIViewController, CharactersFeedAdapterDeleg
         
         self.navigationController?.pushViewController(characterDetail!, animated: true)
     }
-    
-    func scrollViewDidScroll() {
-        
-        if isSearchBarVisible {
-            
-            updateSearchTextFieldVisibility(false, duration: 0.1)
-        }
-    }
-
 }
