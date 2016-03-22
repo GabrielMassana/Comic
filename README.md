@@ -16,7 +16,7 @@ The main decision was to know which of the six Marvel API endpoint I was going t
 
 Checked the quantity of the entries for every endpoint, I decided to use one of the smallest ones: Characters. This endpoint has around 1500 files. Every call to the API sends back a response with 20 characters. That means that with only 75 API calls the app can have all the data downloaded.
 
-### Rabit hole
+### Rabbit hole
 
 The API is built as a rabbit hole. It is possible to start in a character, then call for the comics of this character, then the creators of a comic, and so on. 
 
